@@ -1,0 +1,59 @@
+case                       q rounds nmax svcWaitMax   wallMax    (n-1)q   (2n-1)q   OK
+--------------------------------------------------------------------------------------
+starvation n=6 B=5         5      2    6         25        25        25        55  yes
+starvation n=6 B=50        5     11    6         25        25        25        55  yes
+starvation n=6 B=500       5    101    6         25        25        25        55  yes
+starvation n=6 B=5000      5   1001    6         25        25        25        55  yes
+starvation n=6 B=10       10      2    6         50        50        50       110  yes
+starvation n=6 B=100      10     11    6         50        50        50       110  yes
+starvation n=6 B=1000     10    101    6         50        50        50       110  yes
+starvation n=6 B=10000    10   1001    6         50        50        50       110  yes
+starvation n=6 B=20       20      2    6        100       100       100       220  yes
+starvation n=6 B=200      20     11    6        100       100       100       220  yes
+starvation n=6 B=2000     20    101    6        100       100       100       220  yes
+starvation n=6 B=20000    20   1001    6        100       100       100       220  yes
+starvation n=21 B=5        5      2   21        100       100       100       205  yes
+starvation n=21 B=50       5     11   21        100       100       100       205  yes
+starvation n=21 B=500      5    101   21        100       100       100       205  yes
+starvation n=21 B=5000     5   1001   21        100       100       100       205  yes
+starvation n=21 B=10      10      2   21        200       200       200       410  yes
+starvation n=21 B=100     10     11   21        200       200       200       410  yes
+starvation n=21 B=1000    10    101   21        200       200       200       410  yes
+starvation n=21 B=10000   10   1001   21        200       200       200       410  yes
+starvation n=21 B=20      20      2   21        400       400       400       820  yes
+starvation n=21 B=200     20     11   21        400       400       400       820  yes
+starvation n=21 B=2000    20    101   21        400       400       400       820  yes
+starvation n=21 B=20000   20   1001   21        400       400       400       820  yes
+starvation n=51 B=5        5      2   51        250       250       250       505  yes
+starvation n=51 B=50       5     11   51        250       250       250       505  yes
+starvation n=51 B=500      5    101   51        250       250       250       505  yes
+starvation n=51 B=5000     5   1001   51        250       250       250       505  yes
+starvation n=51 B=10      10      2   51        500       500       500      1010  yes
+starvation n=51 B=100     10     11   51        500       500       500      1010  yes
+starvation n=51 B=1000    10    101   51        500       500       500      1010  yes
+starvation n=51 B=10000   10   1001   51        500       500       500      1010  yes
+starvation n=51 B=20      20      2   51       1000      1000      1000      2020  yes
+starvation n=51 B=200     20     11   51       1000      1000      1000      2020  yes
+starvation n=51 B=2000    20    101   51       1000      1000      1000      2020  yes
+starvation n=51 B=20000   20   1001   51       1000      1000      1000      2020  yes
+mixed n=4                  4      4    4         12        11        12        28  yes
+mixed n=4                  8      4    4         22        17        24        56  yes
+mixed n=4                 16      5    4         48        35        48       112  yes
+mixed n=10                 4      4   10         34        34        36        76  yes
+mixed n=10                 8      5   10         63        63        72       152  yes
+mixed n=10                16      5   10        121       121       144       304  yes
+mixed n=25                 4      5   25         89        89        96       196  yes
+mixed n=25                 8      5   25        161       161       192       392  yes
+mixed n=25                16      5   25        318       318       384       784  yes
+wakeups n=4                5      9    7         15        20        30        65  yes
+wakeups n=4               10      9    7         30        40        60       130  yes
+wakeups n=9                5     14   17         40        55        80       165  yes
+wakeups n=9               10     14   17         80       110       160       330  yes
+wakeups n=16               5     21   31         75       110       150       305  yes
+wakeups n=16              10     21   31        150       220       300       610  yes
+
+cases: 51; all per-dispatch bounds satisfied: True
+cases attaining the tight bound (n_max-1)*q: 38 / 51
+
+svcWaitMax: max CPU ticks delivered by peers earlier in the same round
+wallMax   : max ready->dispatch wall delay among mid-round wake-ups
