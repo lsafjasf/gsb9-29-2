@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "candidate": {
+      "color_mode": "RGB",
+      "height": 64,
+      "orientation": 6,
+      "text": {
+        "Orientation": "6"
+      },
+      "width": 64
+    },
+    "checks": {
+      "color_mode": true,
+      "height": true,
+      "orientation": false,
+      "text_chunks": false,
+      "width": true
+    },
+    "differences": [
+      {
+        "candidate": "6",
+        "key": "Orientation",
+        "reference": "1"
+      }
+    ],
+    "matches": false,
+    "reference": {
+      "color_mode": "RGB",
+      "height": 64,
+      "orientation": 1,
+      "text": {
+        "Orientation": "1"
+      },
+      "width": 64
+    }
+  },
+  "reason": "pixel data identical; metadata differs",
+  "stats": {
+    "channel_mae": {
+      "B": 0.0,
+      "G": 0.0,
+      "R": 0.0
+    },
+    "different_pixels": 0,
+    "histogram": [
+      {
+        "bucket": "0",
+        "pct": 100.0,
+        "pixels": 4096
+      },
+      {
+        "bucket": "1",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "2",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "3-4",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "5-8",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "9-16",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "17-32",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "33-64",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "65-128",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "129-255",
+        "pct": 0.0,
+        "pixels": 0
+      }
+    ],
+    "identical_pixels": 4096,
+    "mae": 0.0,
+    "max_abs_error": 0,
+    "max_error_position": {
+      "x": 0,
+      "y": 0
+    },
+    "over_threshold_pct": 0.0,
+    "over_threshold_pixels": 0,
+    "pixels": 4096,
+    "region_concentration": null,
+    "rmse": 0.0,
+    "threshold": 2
+  },
+  "tolerances": {
+    "mae": 1.0,
+    "max_abs": 8,
+    "over_pct": 1.0,
+    "threshold": 2
+  },
+  "verdict": "metadata_only",
+  "worst_pixels": [],
+  "worst_regions": []
+}

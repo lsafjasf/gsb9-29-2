@@ -1,0 +1,397 @@
+{
+  "chroma": "420",
+  "first_failure": null,
+  "limits": {
+    "delta_mae_per_round": 1.0,
+    "mae": 6.0,
+    "max_abs": 40,
+    "over_pct": 100.0
+  },
+  "mode": "A",
+  "qstep": 8,
+  "recommended_max_rounds": 10,
+  "records": [
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 4.989258,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 4.989258,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.21582,
+      "over_threshold_pixels": 3941,
+      "rmse": 6.415644,
+      "round": 1,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.666667,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.013672,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.00293,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.313477,
+      "over_threshold_pixels": 3945,
+      "rmse": 6.43029,
+      "round": 2,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.59375,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": -0.001791,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.001139,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.289062,
+      "over_threshold_pixels": 3944,
+      "rmse": 6.427341,
+      "round": 3,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.59375,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.0,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.001139,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.289062,
+      "over_threshold_pixels": 3944,
+      "rmse": 6.427341,
+      "round": 4,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.59375,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.0,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.001139,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.289062,
+      "over_threshold_pixels": 3944,
+      "rmse": 6.427341,
+      "round": 5,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.59375,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.0,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.001139,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.289062,
+      "over_threshold_pixels": 3944,
+      "rmse": 6.427341,
+      "round": 6,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.59375,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.0,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.001139,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.289062,
+      "over_threshold_pixels": 3944,
+      "rmse": 6.427341,
+      "round": 7,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.59375,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.0,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.001139,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.289062,
+      "over_threshold_pixels": 3944,
+      "rmse": 6.427341,
+      "round": 8,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.59375,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.0,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.001139,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.289062,
+      "over_threshold_pixels": 3944,
+      "rmse": 6.427341,
+      "round": 9,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.59375,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.0,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.001139,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.289062,
+      "over_threshold_pixels": 3944,
+      "rmse": 6.427341,
+      "round": 10,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.59375,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    }
+  ],
+  "rounds": 10,
+  "threshold": 2
+}

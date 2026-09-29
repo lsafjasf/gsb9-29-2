@@ -1,0 +1,336 @@
+{
+  "metadata": {
+    "candidate": {
+      "color_mode": "RGB",
+      "height": 64,
+      "orientation": 1,
+      "text": {
+        "Orientation": "1"
+      },
+      "width": 64
+    },
+    "checks": {
+      "color_mode": true,
+      "height": true,
+      "orientation": true,
+      "text_chunks": true,
+      "width": true
+    },
+    "differences": [],
+    "matches": true,
+    "reference": {
+      "color_mode": "RGB",
+      "height": 64,
+      "orientation": 1,
+      "text": {
+        "Orientation": "1"
+      },
+      "width": 64
+    }
+  },
+  "reason": "spatially concentrated or large error; likely an algorithm difference",
+  "stats": {
+    "channel_mae": {
+      "B": 5.015137,
+      "G": 4.616943,
+      "R": 8.686768
+    },
+    "different_pixels": 256,
+    "histogram": [
+      {
+        "bucket": "0",
+        "pct": 93.75,
+        "pixels": 3840
+      },
+      {
+        "bucket": "1",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "2",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "3-4",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "5-8",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "9-16",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "17-32",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "33-64",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "65-128",
+        "pct": 1.489258,
+        "pixels": 61
+      },
+      {
+        "bucket": "129-255",
+        "pct": 4.760742,
+        "pixels": 195
+      }
+    ],
+    "identical_pixels": 3840,
+    "mae": 6.106283,
+    "max_abs_error": 150,
+    "max_error_position": {
+      "x": 30,
+      "y": 24
+    },
+    "over_threshold_pct": 6.25,
+    "over_threshold_pixels": 256,
+    "pixels": 4096,
+    "region_concentration": 18.1857,
+    "rmse": 25.923004,
+    "threshold": 2
+  },
+  "tolerances": {
+    "mae": 1.0,
+    "max_abs": 8,
+    "over_pct": 1.0,
+    "threshold": 2
+  },
+  "verdict": "significant",
+  "worst_pixels": [
+    {
+      "candidate": [
+        204,
+        0,
+        0
+      ],
+      "max_channel_diff": 150,
+      "reference": [
+        54,
+        45,
+        90
+      ],
+      "x": 37,
+      "y": 24
+    },
+    {
+      "candidate": [
+        208,
+        0,
+        0
+      ],
+      "max_channel_diff": 150,
+      "reference": [
+        58,
+        50,
+        78
+      ],
+      "x": 36,
+      "y": 24
+    },
+    {
+      "candidate": [
+        207,
+        0,
+        0
+      ],
+      "max_channel_diff": 150,
+      "reference": [
+        57,
+        55,
+        66
+      ],
+      "x": 35,
+      "y": 24
+    },
+    {
+      "candidate": [
+        211,
+        0,
+        0
+      ],
+      "max_channel_diff": 150,
+      "reference": [
+        61,
+        48,
+        69
+      ],
+      "x": 34,
+      "y": 24
+    },
+    {
+      "candidate": [
+        238,
+        0,
+        0
+      ],
+      "max_channel_diff": 150,
+      "reference": [
+        88,
+        44,
+        56
+      ],
+      "x": 33,
+      "y": 24
+    },
+    {
+      "candidate": [
+        244,
+        0,
+        0
+      ],
+      "max_channel_diff": 150,
+      "reference": [
+        94,
+        48,
+        55
+      ],
+      "x": 32,
+      "y": 24
+    },
+    {
+      "candidate": [
+        237,
+        0,
+        0
+      ],
+      "max_channel_diff": 150,
+      "reference": [
+        87,
+        58,
+        69
+      ],
+      "x": 31,
+      "y": 24
+    },
+    {
+      "candidate": [
+        254,
+        0,
+        0
+      ],
+      "max_channel_diff": 150,
+      "reference": [
+        104,
+        50,
+        55
+      ],
+      "x": 30,
+      "y": 24
+    }
+  ],
+  "worst_regions": [
+    {
+      "bbox": {
+        "x0": 32,
+        "x1": 39,
+        "y0": 32,
+        "y1": 39
+      },
+      "candidate_at_max": [
+        238,
+        0,
+        9
+      ],
+      "mae": 111.046875,
+      "max_abs_error": 150,
+      "max_point": {
+        "x": 32,
+        "y": 32
+      },
+      "over_threshold_pct": 100.0,
+      "reference_at_max": [
+        88,
+        79,
+        99
+      ]
+    },
+    {
+      "bbox": {
+        "x0": 24,
+        "x1": 31,
+        "y0": 32,
+        "y1": 39
+      },
+      "candidate_at_max": [
+        244,
+        0,
+        0
+      ],
+      "mae": 102.333333,
+      "max_abs_error": 150,
+      "max_point": {
+        "x": 30,
+        "y": 32
+      },
+      "over_threshold_pct": 100.0,
+      "reference_at_max": [
+        94,
+        65,
+        89
+      ]
+    },
+    {
+      "bbox": {
+        "x0": 32,
+        "x1": 39,
+        "y0": 24,
+        "y1": 31
+      },
+      "candidate_at_max": [
+        244,
+        0,
+        0
+      ],
+      "mae": 95.744792,
+      "max_abs_error": 150,
+      "max_point": {
+        "x": 32,
+        "y": 24
+      },
+      "over_threshold_pct": 100.0,
+      "reference_at_max": [
+        94,
+        48,
+        55
+      ]
+    },
+    {
+      "bbox": {
+        "x0": 24,
+        "x1": 31,
+        "y0": 24,
+        "y1": 31
+      },
+      "candidate_at_max": [
+        254,
+        0,
+        0
+      ],
+      "mae": 81.677083,
+      "max_abs_error": 150,
+      "max_point": {
+        "x": 30,
+        "y": 24
+      },
+      "over_threshold_pct": 100.0,
+      "reference_at_max": [
+        104,
+        50,
+        55
+      ]
+    }
+  ]
+}

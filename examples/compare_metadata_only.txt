@@ -1,0 +1,38 @@
+VERDICT       : metadata_only
+REASON        : pixel data identical; metadata differs
+TOLERANCES    : mae<=1.0 max_abs<=8 over_pct<=1.0% (threshold >2)
+
+[metadata]
+  width       : OK
+  height      : OK
+  color_mode  : OK
+  orientation : DIFF
+  text_chunks : DIFF
+    text chunk 'Orientation': '1' -> '6'
+
+[pixel stats]
+  size                 : 4096 pixels
+  identical / diff     : 4096 / 0
+  MAE                  : 0.0000
+  RMSE                 : 0.0000
+  max abs error        : 0 at (x=0, y=0)
+  over-threshold (>2) : 0 pixels (0.0000%)
+  channel MAE          : R=0.0000, G=0.0000, B=0.0000
+
+[difference histogram] (per-pixel max-channel delta)
+         0:  100.0000%    4096  ##################################################
+         1:    0.0000%       0  
+         2:    0.0000%       0  
+       3-4:    0.0000%       0  
+       5-8:    0.0000%       0  
+      9-16:    0.0000%       0  
+     17-32:    0.0000%       0  
+     33-64:    0.0000%       0  
+    65-128:    0.0000%       0  
+   129-255:    0.0000%       0  
+
+[worst regions] (block-localized)
+  none
+
+[worst pixels]
+  none

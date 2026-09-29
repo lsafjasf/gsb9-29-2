@@ -1,0 +1,368 @@
+{
+  "metadata": {
+    "candidate": {
+      "color_mode": "RGB",
+      "height": 64,
+      "orientation": 1,
+      "text": {
+        "Encoder": "lossy-envA-q8-420",
+        "Orientation": "1"
+      },
+      "width": 64
+    },
+    "checks": {
+      "color_mode": true,
+      "height": true,
+      "orientation": true,
+      "text_chunks": false,
+      "width": true
+    },
+    "differences": [
+      {
+        "candidate": "lossy-envA-q8-420",
+        "key": "Encoder",
+        "reference": null
+      }
+    ],
+    "matches": false,
+    "reference": {
+      "color_mode": "RGB",
+      "height": 64,
+      "orientation": 1,
+      "text": {
+        "Orientation": "1"
+      },
+      "width": 64
+    }
+  },
+  "reason": "diffuse moderate errors; consistent with codec quantization rather than an algorithm change",
+  "stats": {
+    "channel_mae": {
+      "B": 6.352783,
+      "G": 3.280029,
+      "R": 5.334961
+    },
+    "different_pixels": 4095,
+    "histogram": [
+      {
+        "bucket": "0",
+        "pct": 0.024414,
+        "pixels": 1
+      },
+      {
+        "bucket": "1",
+        "pct": 0.805664,
+        "pixels": 33
+      },
+      {
+        "bucket": "2",
+        "pct": 2.954102,
+        "pixels": 121
+      },
+      {
+        "bucket": "3-4",
+        "pct": 12.353516,
+        "pixels": 506
+      },
+      {
+        "bucket": "5-8",
+        "pct": 38.40332,
+        "pixels": 1573
+      },
+      {
+        "bucket": "9-16",
+        "pct": 41.015625,
+        "pixels": 1680
+      },
+      {
+        "bucket": "17-32",
+        "pct": 4.443359,
+        "pixels": 182
+      },
+      {
+        "bucket": "33-64",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "65-128",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "129-255",
+        "pct": 0.0,
+        "pixels": 0
+      }
+    ],
+    "identical_pixels": 1,
+    "mae": 4.989258,
+    "max_abs_error": 26,
+    "max_error_position": {
+      "x": 59,
+      "y": 43
+    },
+    "over_threshold_pct": 96.21582,
+    "over_threshold_pixels": 3941,
+    "pixels": 4096,
+    "region_concentration": 1.1358,
+    "rmse": 6.415644,
+    "threshold": 2
+  },
+  "tolerances": {
+    "mae": 1.0,
+    "max_abs": 8,
+    "over_pct": 1.0,
+    "threshold": 2
+  },
+  "verdict": "quantization",
+  "worst_pixels": [
+    {
+      "candidate": [
+        145,
+        155,
+        157
+      ],
+      "max_channel_diff": 26,
+      "reference": [
+        147,
+        154,
+        131
+      ],
+      "x": 59,
+      "y": 43
+    },
+    {
+      "candidate": [
+        158,
+        66,
+        167
+      ],
+      "max_channel_diff": 25,
+      "reference": [
+        156,
+        71,
+        192
+      ],
+      "x": 62,
+      "y": 32
+    },
+    {
+      "candidate": [
+        82,
+        126,
+        91
+      ],
+      "max_channel_diff": 25,
+      "reference": [
+        80,
+        126,
+        66
+      ],
+      "x": 51,
+      "y": 62
+    },
+    {
+      "candidate": [
+        52,
+        174,
+        197
+      ],
+      "max_channel_diff": 25,
+      "reference": [
+        51,
+        173,
+        172
+      ],
+      "x": 43,
+      "y": 51
+    },
+    {
+      "candidate": [
+        61,
+        43,
+        65
+      ],
+      "max_channel_diff": 25,
+      "reference": [
+        57,
+        42,
+        90
+      ],
+      "x": 35,
+      "y": 27
+    },
+    {
+      "candidate": [
+        113,
+        173,
+        139
+      ],
+      "max_channel_diff": 24,
+      "reference": [
+        104,
+        176,
+        115
+      ],
+      "x": 55,
+      "y": 49
+    },
+    {
+      "candidate": [
+        100,
+        142,
+        202
+      ],
+      "max_channel_diff": 24,
+      "reference": [
+        98,
+        139,
+        178
+      ],
+      "x": 53,
+      "y": 41
+    },
+    {
+      "candidate": [
+        53,
+        43,
+        80
+      ],
+      "max_channel_diff": 24,
+      "reference": [
+        60,
+        41,
+        104
+      ],
+      "x": 37,
+      "y": 27
+    }
+  ],
+  "worst_regions": [
+    {
+      "bbox": {
+        "x0": 56,
+        "x1": 63,
+        "y0": 40,
+        "y1": 47
+      },
+      "candidate_at_max": [
+        145,
+        155,
+        157
+      ],
+      "mae": 5.666667,
+      "max_abs_error": 26,
+      "max_point": {
+        "x": 59,
+        "y": 43
+      },
+      "over_threshold_pct": 95.3125,
+      "reference_at_max": [
+        147,
+        154,
+        131
+      ]
+    },
+    {
+      "bbox": {
+        "x0": 56,
+        "x1": 63,
+        "y0": 32,
+        "y1": 39
+      },
+      "candidate_at_max": [
+        158,
+        66,
+        167
+      ],
+      "mae": 5.744792,
+      "max_abs_error": 25,
+      "max_point": {
+        "x": 62,
+        "y": 32
+      },
+      "over_threshold_pct": 98.4375,
+      "reference_at_max": [
+        156,
+        71,
+        192
+      ]
+    },
+    {
+      "bbox": {
+        "x0": 40,
+        "x1": 47,
+        "y0": 48,
+        "y1": 55
+      },
+      "candidate_at_max": [
+        52,
+        174,
+        197
+      ],
+      "mae": 5.223958,
+      "max_abs_error": 25,
+      "max_point": {
+        "x": 43,
+        "y": 51
+      },
+      "over_threshold_pct": 96.875,
+      "reference_at_max": [
+        51,
+        173,
+        172
+      ]
+    },
+    {
+      "bbox": {
+        "x0": 48,
+        "x1": 55,
+        "y0": 56,
+        "y1": 63
+      },
+      "candidate_at_max": [
+        82,
+        126,
+        91
+      ],
+      "mae": 5.026042,
+      "max_abs_error": 25,
+      "max_point": {
+        "x": 51,
+        "y": 62
+      },
+      "over_threshold_pct": 95.3125,
+      "reference_at_max": [
+        80,
+        126,
+        66
+      ]
+    },
+    {
+      "bbox": {
+        "x0": 32,
+        "x1": 39,
+        "y0": 24,
+        "y1": 31
+      },
+      "candidate_at_max": [
+        61,
+        43,
+        65
+      ],
+      "mae": 4.895833,
+      "max_abs_error": 25,
+      "max_point": {
+        "x": 35,
+        "y": 27
+      },
+      "over_threshold_pct": 96.875,
+      "reference_at_max": [
+        57,
+        42,
+        90
+      ]
+    }
+  ]
+}

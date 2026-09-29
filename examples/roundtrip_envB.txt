@@ -1,0 +1,19 @@
+ROUND-TRIP EVALUATION
+  mode=B qstep=8 chroma=420 rounds=10 threshold>2
+  limits: MAE<=6.0 max_abs<=40 over_pct<=100.0% per-round MAE growth<=1.0
+  RECOMMENDED MAX ROUND-TRIPS: 0
+  first failure: round 1 (mae>6.000)
+
+round  env       MAE  deltaMAE  maxErr    overPx>2    overPct  ok
+    1    B    6.3101   +6.3101      40        3886   94.8730%  NO  [mae>6.000]
+    2    B    6.5876   +0.2774      48        3956   96.5820%  NO  [mae>6.000,max_abs>40]
+    3    B    6.8848   +0.2972      48        4001   97.6807%  NO  [mae>6.000,max_abs>40]
+    4    B    7.2126   +0.3278      48        4010   97.9004%  NO  [mae>6.000,max_abs>40]
+    5    B    7.5249   +0.3123      51        4023   98.2178%  NO  [mae>6.000,max_abs>40]
+    6    B    7.8539   +0.3290      53        4026   98.2910%  NO  [mae>6.000,max_abs>40]
+    7    B    8.1741   +0.3201      60        4028   98.3398%  NO  [mae>6.000,max_abs>40]
+    8    B    8.5073   +0.3333      60        4028   98.3398%  NO  [mae>6.000,max_abs>40]
+    9    B    8.8091   +0.3018      62        4046   98.7793%  NO  [mae>6.000,max_abs>40]
+   10    B    9.1001   +0.2910      65        4050   98.8770%  NO  [mae>6.000,max_abs>40]
+
+worst region at round 10: bbox=(x:56-63,y:48-55) MAE=11.0208 max=65 ref=[114, 170, 70] cand=[115, 149, 135]

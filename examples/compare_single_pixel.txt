@@ -1,0 +1,38 @@
+VERDICT       : single_pixel
+REASON        : exactly one pixel differs
+TOLERANCES    : mae<=1.0 max_abs<=8 over_pct<=1.0% (threshold >2)
+
+[metadata]
+  width       : OK
+  height      : OK
+  color_mode  : OK
+  orientation : OK
+  text_chunks : OK
+
+[pixel stats]
+  size                 : 4096 pixels
+  identical / diff     : 4095 / 1
+  MAE                  : 0.0264
+  RMSE                 : 2.0255
+  max abs error        : 209 at (x=37, y=21)
+  over-threshold (>2) : 1 pixels (0.0244%)
+  channel MAE          : R=0.0510, G=0.0144, B=0.0139
+
+[difference histogram] (per-pixel max-channel delta)
+         0:   99.9756%    4095  ##################################################
+         1:    0.0000%       0  
+         2:    0.0000%       0  
+       3-4:    0.0000%       0  
+       5-8:    0.0000%       0  
+      9-16:    0.0000%       0  
+     17-32:    0.0000%       0  
+     33-64:    0.0000%       0  
+    65-128:    0.0000%       0  
+   129-255:    0.0244%       1  
+
+[worst regions] (block-localized)
+  #1 bbox=(x:32-39, y:16-23) MAE=1.6927 max=209 over=1.56%
+      worst at (x=37,y=21): ref=[46, 59, 71] cand=[255, 0, 128]
+
+[worst pixels]
+  (x=37,y=21) ref=[46, 59, 71] cand=[255, 0, 128] max_delta=209

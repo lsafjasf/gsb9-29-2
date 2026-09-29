@@ -1,0 +1,51 @@
+VERDICT       : significant
+REASON        : spatially concentrated or large error; likely an algorithm difference
+TOLERANCES    : mae<=1.0 max_abs<=8 over_pct<=1.0% (threshold >2)
+
+[metadata]
+  width       : OK
+  height      : OK
+  color_mode  : OK
+  orientation : OK
+  text_chunks : OK
+
+[pixel stats]
+  size                 : 4096 pixels
+  identical / diff     : 3840 / 256
+  MAE                  : 6.1063
+  RMSE                 : 25.9230
+  max abs error        : 150 at (x=30, y=24)
+  over-threshold (>2) : 256 pixels (6.2500%)
+  channel MAE          : R=8.6868, G=4.6169, B=5.0151
+
+[difference histogram] (per-pixel max-channel delta)
+         0:   93.7500%    3840  ###############################################
+         1:    0.0000%       0  
+         2:    0.0000%       0  
+       3-4:    0.0000%       0  
+       5-8:    0.0000%       0  
+      9-16:    0.0000%       0  
+     17-32:    0.0000%       0  
+     33-64:    0.0000%       0  
+    65-128:    1.4893%      61  #
+   129-255:    4.7607%     195  ##
+
+[worst regions] (block-localized)
+  #1 bbox=(x:32-39, y:32-39) MAE=111.0469 max=150 over=100.00%
+      worst at (x=32,y=32): ref=[88, 79, 99] cand=[238, 0, 9]
+  #2 bbox=(x:24-31, y:32-39) MAE=102.3333 max=150 over=100.00%
+      worst at (x=30,y=32): ref=[94, 65, 89] cand=[244, 0, 0]
+  #3 bbox=(x:32-39, y:24-31) MAE=95.7448 max=150 over=100.00%
+      worst at (x=32,y=24): ref=[94, 48, 55] cand=[244, 0, 0]
+  #4 bbox=(x:24-31, y:24-31) MAE=81.6771 max=150 over=100.00%
+      worst at (x=30,y=24): ref=[104, 50, 55] cand=[254, 0, 0]
+
+[worst pixels]
+  (x=37,y=24) ref=[54, 45, 90] cand=[204, 0, 0] max_delta=150
+  (x=36,y=24) ref=[58, 50, 78] cand=[208, 0, 0] max_delta=150
+  (x=35,y=24) ref=[57, 55, 66] cand=[207, 0, 0] max_delta=150
+  (x=34,y=24) ref=[61, 48, 69] cand=[211, 0, 0] max_delta=150
+  (x=33,y=24) ref=[88, 44, 56] cand=[238, 0, 0] max_delta=150
+  (x=32,y=24) ref=[94, 48, 55] cand=[244, 0, 0] max_delta=150
+  (x=31,y=24) ref=[87, 58, 69] cand=[237, 0, 0] max_delta=150
+  (x=30,y=24) ref=[104, 50, 55] cand=[254, 0, 0] max_delta=150

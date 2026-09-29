@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "candidate": {
+      "color_mode": "RGB",
+      "height": 64,
+      "orientation": 1,
+      "text": {
+        "Orientation": "1"
+      },
+      "width": 64
+    },
+    "checks": {
+      "color_mode": true,
+      "height": true,
+      "orientation": true,
+      "text_chunks": true,
+      "width": true
+    },
+    "differences": [],
+    "matches": true,
+    "reference": {
+      "color_mode": "RGB",
+      "height": 64,
+      "orientation": 1,
+      "text": {
+        "Orientation": "1"
+      },
+      "width": 64
+    }
+  },
+  "reason": "exactly one pixel differs",
+  "stats": {
+    "channel_mae": {
+      "B": 0.013916,
+      "G": 0.014404,
+      "R": 0.051025
+    },
+    "different_pixels": 1,
+    "histogram": [
+      {
+        "bucket": "0",
+        "pct": 99.975586,
+        "pixels": 4095
+      },
+      {
+        "bucket": "1",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "2",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "3-4",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "5-8",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "9-16",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "17-32",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "33-64",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "65-128",
+        "pct": 0.0,
+        "pixels": 0
+      },
+      {
+        "bucket": "129-255",
+        "pct": 0.024414,
+        "pixels": 1
+      }
+    ],
+    "identical_pixels": 4095,
+    "mae": 0.026449,
+    "max_abs_error": 209,
+    "max_error_position": {
+      "x": 37,
+      "y": 21
+    },
+    "over_threshold_pct": 0.024414,
+    "over_threshold_pixels": 1,
+    "pixels": 4096,
+    "region_concentration": 64.0,
+    "rmse": 2.025452,
+    "threshold": 2
+  },
+  "tolerances": {
+    "mae": 1.0,
+    "max_abs": 8,
+    "over_pct": 1.0,
+    "threshold": 2
+  },
+  "verdict": "single_pixel",
+  "worst_pixels": [
+    {
+      "candidate": [
+        255,
+        0,
+        128
+      ],
+      "max_channel_diff": 209,
+      "reference": [
+        46,
+        59,
+        71
+      ],
+      "x": 37,
+      "y": 21
+    }
+  ],
+  "worst_regions": [
+    {
+      "bbox": {
+        "x0": 32,
+        "x1": 39,
+        "y0": 16,
+        "y1": 23
+      },
+      "candidate_at_max": [
+        255,
+        0,
+        128
+      ],
+      "mae": 1.692708,
+      "max_abs_error": 209,
+      "max_point": {
+        "x": 37,
+        "y": 21
+      },
+      "over_threshold_pct": 1.5625,
+      "reference_at_max": [
+        46,
+        59,
+        71
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+VERDICT       : quantization
+REASON        : diffuse moderate errors; consistent with codec quantization rather than an algorithm change
+TOLERANCES    : mae<=1.0 max_abs<=8 over_pct<=1.0% (threshold >2)
+
+[metadata]
+  width       : OK
+  height      : OK
+  color_mode  : OK
+  orientation : OK
+  text_chunks : DIFF
+    text chunk 'Encoder': None -> 'lossy-envA-q8-420'
+
+[pixel stats]
+  size                 : 4096 pixels
+  identical / diff     : 1 / 4095
+  MAE                  : 4.9893
+  RMSE                 : 6.4156
+  max abs error        : 26 at (x=59, y=43)
+  over-threshold (>2) : 3941 pixels (96.2158%)
+  channel MAE          : R=5.3350, G=3.2800, B=6.3528
+
+[difference histogram] (per-pixel max-channel delta)
+         0:    0.0244%       1  
+         1:    0.8057%      33  
+         2:    2.9541%     121  #
+       3-4:   12.3535%     506  ######
+       5-8:   38.4033%    1573  ###################
+      9-16:   41.0156%    1680  #####################
+     17-32:    4.4434%     182  ##
+     33-64:    0.0000%       0  
+    65-128:    0.0000%       0  
+   129-255:    0.0000%       0  
+
+[worst regions] (block-localized)
+  #1 bbox=(x:56-63, y:40-47) MAE=5.6667 max=26 over=95.31%
+      worst at (x=59,y=43): ref=[147, 154, 131] cand=[145, 155, 157]
+  #2 bbox=(x:56-63, y:32-39) MAE=5.7448 max=25 over=98.44%
+      worst at (x=62,y=32): ref=[156, 71, 192] cand=[158, 66, 167]
+  #3 bbox=(x:40-47, y:48-55) MAE=5.2240 max=25 over=96.88%
+      worst at (x=43,y=51): ref=[51, 173, 172] cand=[52, 174, 197]
+  #4 bbox=(x:48-55, y:56-63) MAE=5.0260 max=25 over=95.31%
+      worst at (x=51,y=62): ref=[80, 126, 66] cand=[82, 126, 91]
+  #5 bbox=(x:32-39, y:24-31) MAE=4.8958 max=25 over=96.88%
+      worst at (x=35,y=27): ref=[57, 42, 90] cand=[61, 43, 65]
+
+[worst pixels]
+  (x=59,y=43) ref=[147, 154, 131] cand=[145, 155, 157] max_delta=26
+  (x=62,y=32) ref=[156, 71, 192] cand=[158, 66, 167] max_delta=25
+  (x=51,y=62) ref=[80, 126, 66] cand=[82, 126, 91] max_delta=25
+  (x=43,y=51) ref=[51, 173, 172] cand=[52, 174, 197] max_delta=25
+  (x=35,y=27) ref=[57, 42, 90] cand=[61, 43, 65] max_delta=25
+  (x=55,y=49) ref=[104, 176, 115] cand=[113, 173, 139] max_delta=24
+  (x=53,y=41) ref=[98, 139, 178] cand=[100, 142, 202] max_delta=24
+  (x=37,y=27) ref=[60, 41, 104] cand=[53, 43, 80] max_delta=24

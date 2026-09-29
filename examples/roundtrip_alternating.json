@@ -1,0 +1,404 @@
+{
+  "chroma": "420",
+  "first_failure": {
+    "reasons": [
+      "mae>6.000"
+    ],
+    "round": 10
+  },
+  "limits": {
+    "delta_mae_per_round": 1.0,
+    "mae": 6.0,
+    "max_abs": 40,
+    "over_pct": 100.0
+  },
+  "mode": "alternating",
+  "qstep": 8,
+  "recommended_max_rounds": 9,
+  "records": [
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 4.989258,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 4.989258,
+      "max_abs_error": 26,
+      "over_threshold_pct": 96.21582,
+      "over_threshold_pixels": 3941,
+      "rmse": 6.415644,
+      "round": 1,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 40,
+          "y1": 47
+        },
+        "candidate_at_max": [
+          145,
+          155,
+          157
+        ],
+        "mae": 5.666667,
+        "max_abs_error": 26,
+        "max_point": {
+          "x": 59,
+          "y": 43
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          147,
+          154,
+          131
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.131103,
+      "different_pixels": 4094,
+      "env": "B",
+      "mae": 5.120361,
+      "max_abs_error": 27,
+      "over_threshold_pct": 96.386719,
+      "over_threshold_pixels": 3948,
+      "rmse": 6.604842,
+      "round": 2,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 32,
+          "y1": 39
+        },
+        "candidate_at_max": [
+          157,
+          67,
+          165
+        ],
+        "mae": 6.015625,
+        "max_abs_error": 27,
+        "max_point": {
+          "x": 62,
+          "y": 32
+        },
+        "over_threshold_pct": 93.75,
+        "reference_at_max": [
+          156,
+          71,
+          192
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": -0.003825,
+      "different_pixels": 4094,
+      "env": "A",
+      "mae": 5.116536,
+      "max_abs_error": 25,
+      "over_threshold_pct": 96.240234,
+      "over_threshold_pixels": 3942,
+      "rmse": 6.599104,
+      "round": 3,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 32,
+          "y1": 39
+        },
+        "candidate_at_max": [
+          157,
+          67,
+          167
+        ],
+        "mae": 5.963542,
+        "max_abs_error": 25,
+        "max_point": {
+          "x": 62,
+          "y": 32
+        },
+        "over_threshold_pct": 93.75,
+        "reference_at_max": [
+          156,
+          71,
+          192
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.177979,
+      "different_pixels": 4096,
+      "env": "B",
+      "mae": 5.294515,
+      "max_abs_error": 28,
+      "over_threshold_pct": 96.655273,
+      "over_threshold_pixels": 3959,
+      "rmse": 6.855423,
+      "round": 4,
+      "worst_region": {
+        "bbox": {
+          "x0": 48,
+          "x1": 55,
+          "y0": 24,
+          "y1": 31
+        },
+        "candidate_at_max": [
+          58,
+          53,
+          156
+        ],
+        "mae": 5.276042,
+        "max_abs_error": 28,
+        "max_point": {
+          "x": 48,
+          "y": 29
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          63,
+          48,
+          184
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": -0.004883,
+      "different_pixels": 4096,
+      "env": "A",
+      "mae": 5.289632,
+      "max_abs_error": 27,
+      "over_threshold_pct": 96.728516,
+      "over_threshold_pixels": 3962,
+      "rmse": 6.846633,
+      "round": 5,
+      "worst_region": {
+        "bbox": {
+          "x0": 56,
+          "x1": 63,
+          "y0": 32,
+          "y1": 39
+        },
+        "candidate_at_max": [
+          154,
+          68,
+          165
+        ],
+        "mae": 6.125,
+        "max_abs_error": 27,
+        "max_point": {
+          "x": 62,
+          "y": 32
+        },
+        "over_threshold_pct": 95.3125,
+        "reference_at_max": [
+          156,
+          71,
+          192
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.22168,
+      "different_pixels": 4096,
+      "env": "B",
+      "mae": 5.511312,
+      "max_abs_error": 32,
+      "over_threshold_pct": 97.119141,
+      "over_threshold_pixels": 3978,
+      "rmse": 7.163087,
+      "round": 6,
+      "worst_region": {
+        "bbox": {
+          "x0": 8,
+          "x1": 15,
+          "y0": 16,
+          "y1": 23
+        },
+        "candidate_at_max": [
+          225,
+          95,
+          133
+        ],
+        "mae": 6.166667,
+        "max_abs_error": 32,
+        "max_point": {
+          "x": 14,
+          "y": 16
+        },
+        "over_threshold_pct": 98.4375,
+        "reference_at_max": [
+          220,
+          87,
+          165
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": -0.001546,
+      "different_pixels": 4096,
+      "env": "A",
+      "mae": 5.509766,
+      "max_abs_error": 32,
+      "over_threshold_pct": 97.119141,
+      "over_threshold_pixels": 3978,
+      "rmse": 7.161502,
+      "round": 7,
+      "worst_region": {
+        "bbox": {
+          "x0": 8,
+          "x1": 15,
+          "y0": 16,
+          "y1": 23
+        },
+        "candidate_at_max": [
+          225,
+          95,
+          133
+        ],
+        "mae": 6.166667,
+        "max_abs_error": 32,
+        "max_point": {
+          "x": 14,
+          "y": 16
+        },
+        "over_threshold_pct": 98.4375,
+        "reference_at_max": [
+          220,
+          87,
+          165
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.241862,
+      "different_pixels": 4095,
+      "env": "B",
+      "mae": 5.751628,
+      "max_abs_error": 36,
+      "over_threshold_pct": 97.412109,
+      "over_threshold_pixels": 3990,
+      "rmse": 7.491097,
+      "round": 8,
+      "worst_region": {
+        "bbox": {
+          "x0": 8,
+          "x1": 15,
+          "y0": 16,
+          "y1": 23
+        },
+        "candidate_at_max": [
+          222,
+          97,
+          129
+        ],
+        "mae": 7.0,
+        "max_abs_error": 36,
+        "max_point": {
+          "x": 14,
+          "y": 16
+        },
+        "over_threshold_pct": 100.0,
+        "reference_at_max": [
+          220,
+          87,
+          165
+        ]
+      }
+    },
+    {
+      "acceptable": true,
+      "breaches": [],
+      "delta_mae_vs_prev_round": 0.003092,
+      "different_pixels": 4095,
+      "env": "A",
+      "mae": 5.75472,
+      "max_abs_error": 38,
+      "over_threshold_pct": 97.338867,
+      "over_threshold_pixels": 3987,
+      "rmse": 7.496853,
+      "round": 9,
+      "worst_region": {
+        "bbox": {
+          "x0": 8,
+          "x1": 15,
+          "y0": 16,
+          "y1": 23
+        },
+        "candidate_at_max": [
+          222,
+          97,
+          127
+        ],
+        "mae": 7.130208,
+        "max_abs_error": 38,
+        "max_point": {
+          "x": 14,
+          "y": 16
+        },
+        "over_threshold_pct": 98.4375,
+        "reference_at_max": [
+          220,
+          87,
+          165
+        ]
+      }
+    },
+    {
+      "acceptable": false,
+      "breaches": [
+        "mae>6.000"
+      ],
+      "delta_mae_vs_prev_round": 0.249268,
+      "different_pixels": 4095,
+      "env": "B",
+      "mae": 6.003988,
+      "max_abs_error": 39,
+      "over_threshold_pct": 97.436523,
+      "over_threshold_pixels": 3991,
+      "rmse": 7.846774,
+      "round": 10,
+      "worst_region": {
+        "bbox": {
+          "x0": 8,
+          "x1": 15,
+          "y0": 16,
+          "y1": 23
+        },
+        "candidate_at_max": [
+          221,
+          98,
+          126
+        ],
+        "mae": 7.953125,
+        "max_abs_error": 39,
+        "max_point": {
+          "x": 14,
+          "y": 16
+        },
+        "over_threshold_pct": 98.4375,
+        "reference_at_max": [
+          220,
+          87,
+          165
+        ]
+      }
+    }
+  ],
+  "rounds": 10,
+  "threshold": 2
+}

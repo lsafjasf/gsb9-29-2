@@ -1,0 +1,18 @@
+ROUND-TRIP EVALUATION
+  mode=A qstep=8 chroma=420 rounds=10 threshold>2
+  limits: MAE<=6.0 max_abs<=40 over_pct<=100.0% per-round MAE growth<=1.0
+  RECOMMENDED MAX ROUND-TRIPS: 10
+
+round  env       MAE  deltaMAE  maxErr    overPx>2    overPct  ok
+    1    A    4.9893   +4.9893      26        3941   96.2158%  yes
+    2    A    5.0029   +0.0137      26        3945   96.3135%  yes
+    3    A    5.0011   -0.0018      26        3944   96.2891%  yes
+    4    A    5.0011   +0.0000      26        3944   96.2891%  yes
+    5    A    5.0011   +0.0000      26        3944   96.2891%  yes
+    6    A    5.0011   +0.0000      26        3944   96.2891%  yes
+    7    A    5.0011   +0.0000      26        3944   96.2891%  yes
+    8    A    5.0011   +0.0000      26        3944   96.2891%  yes
+    9    A    5.0011   +0.0000      26        3944   96.2891%  yes
+   10    A    5.0011   +0.0000      26        3944   96.2891%  yes
+
+worst region at round 10: bbox=(x:56-63,y:40-47) MAE=5.5938 max=26 ref=[147, 154, 131] cand=[145, 155, 157]
