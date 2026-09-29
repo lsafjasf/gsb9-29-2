@@ -1,0 +1,8 @@
+[
+  {"id": 1, "action": "allow", "src": "10.0.0.0/8", "dst": "*", "protocol": "tcp", "port": "80"},
+  {"id": 2, "action": "allow", "src": "10.1.0.0/16", "dst": "*", "protocol": "tcp", "port": "80"},
+  {"id": 3, "action": "deny",  "src": "10.1.0.0/16", "dst": "192.168.1.0/24", "protocol": "tcp", "port": "80"},
+  {"id": 4, "action": "allow", "src": "*", "dst": "*", "protocol": "*", "port": "*"},
+  {"id": 5, "action": "deny",  "src": "172.16.0.0/12", "dst": "*", "protocol": "udp", "port": "53"},
+  {"id": 6, "action": "allow", "src": "192.0.2.0/24", "dst": "198.51.100.0/24", "protocol": "tcp", "port": "443"}
+]
