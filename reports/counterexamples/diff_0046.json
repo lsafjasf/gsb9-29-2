@@ -1,0 +1,32 @@
+{
+  "id": "diff_0046",
+  "case_index": 275,
+  "verdict": "ERROR_CATEGORY_MISMATCH",
+  "tags": [
+    "field_added",
+    "field_removed",
+    "mutation"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0046.orig.bin",
+    "size": 172,
+    "hex": "01002101001e010000010000030008d516a63c4321534a01000a030004547eeaef020000010032010000020019e5ad976362636358633109a4e69687e4b8ad59586162e7aca6630200055863e5ad970100040300019d020001e70331356f41ed14f097010017010014030002dc14030001980200016a030004a05f421d01000b03000875b57e208e5f39f602001ee4b8ad38e7aca609e7aca6e4b8ad615a61585861635863205a6130e5ad97"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0046.min.bin",
+    "size": 19,
+    "hex": "030008020019e5970100040300019d020001e7"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "error",
+      "category": "INVALID_UTF8",
+      "detail": "'utf-8' codec can't decode byte 0xe7 in position 0: unexpected end of data"
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

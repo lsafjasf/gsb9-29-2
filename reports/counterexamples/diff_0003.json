@@ -1,0 +1,32 @@
+{
+  "id": "diff_0003",
+  "case_index": 24,
+  "verdict": "ERROR_CATEGORY_MISMATCH",
+  "tags": [
+    "field_added",
+    "mutation",
+    "unknown_type"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0003.orig.bin",
+    "size": 184,
+    "hex": "01001f0300012f0100140300022eb20300017b0300082ff7c76d126893ba020001590100000100340100050300024fc403000169030008a1821f3f02b84ef2030002b1e5020015e7aca6e69687385a0958e4b8ad61e4b8ad633030e40200000100530100280300d468a102d495020020e696875838386358205a31e7aca6205a59e696876359e5ad9720382059383838030004f9edaa0702001e31315838e69687e69687625a31e5ad9763e4b8ad38586358592038e5ad97"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0003.min.bin",
+    "size": 35,
+    "hex": "030008a1821f3f02b84ef2020015e7aca6e69687385a0958e4b8ad61e4b8ad633030e4"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "error",
+      "category": "INVALID_UTF8",
+      "detail": "'utf-8' codec can't decode byte 0xe4 in position 20: unexpected end of data"
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

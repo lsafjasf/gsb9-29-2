@@ -1,0 +1,35 @@
+{
+  "id": "diff_0035",
+  "case_index": 193,
+  "verdict": "ONE_SIDED",
+  "tags": [
+    "boundary_length",
+    "uint_boundary"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0035.orig.bin",
+    "size": 11,
+    "hex": "0300089576c6f06249183d"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0035.min.bin",
+    "size": 11,
+    "hex": "0300089576c6f06249183d"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "ok",
+      "value": [
+        {
+          "type": "uint",
+          "value": 10770014294646528061
+        }
+      ]
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

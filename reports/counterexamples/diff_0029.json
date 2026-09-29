@@ -1,0 +1,30 @@
+{
+  "id": "diff_0029",
+  "case_index": 182,
+  "verdict": "ERROR_CATEGORY_MISMATCH",
+  "tags": [
+    "valid"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0029.orig.bin",
+    "size": 21,
+    "hex": "030008690ebebe87255e4202000720e4b8ad09e696"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0029.min.bin",
+    "size": 21,
+    "hex": "030008690ebebe87255e4202000720e4b8ad09e696"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "error",
+      "category": "INVALID_UTF8",
+      "detail": "'utf-8' codec can't decode bytes in position 5-6: unexpected end of data"
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "diff_0016",
+  "case_index": 79,
+  "verdict": "ONE_SIDED",
+  "tags": [
+    "valid"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0016.orig.bin",
+    "size": 22,
+    "hex": "0300084f9e6f63895e49230300082c0439f961051335"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0016.min.bin",
+    "size": 11,
+    "hex": "0300082c0439f961051335"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "ok",
+      "value": [
+        {
+          "type": "uint",
+          "value": 3171723780813034293
+        }
+      ]
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

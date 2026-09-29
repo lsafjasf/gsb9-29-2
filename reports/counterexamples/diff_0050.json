@@ -1,0 +1,35 @@
+{
+  "id": "diff_0050",
+  "case_index": 301,
+  "verdict": "ONE_SIDED",
+  "tags": [
+    "boundary_length",
+    "valid"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0050.orig.bin",
+    "size": 224,
+    "hex": "030002243e0300015f02000b61e7aca6e696875a6259630100c601002202001f3062e7aca6e4b8ad3061306230205958585ae5ad97306258e69687e7aca658030001ba010005030002d5a401008c0300015c030008193d799578affd3201007701001e03000185030001d7020013585a093859315a616263625a62630963e7aca60100150200010902000e20e6968709593863e7aca620316201002e0200023859030008c59febcbf0df4998030004624335b903000476dc0479030008c8f8aaff46df13750300026b97010005030002da6403000295c8010000010003010000"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0050.min.bin",
+    "size": 11,
+    "hex": "030008c8f8aaff46df1375"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "ok",
+      "value": [
+        {
+          "type": "uint",
+          "value": 14481512615192236917
+        }
+      ]
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

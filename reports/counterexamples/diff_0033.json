@@ -1,0 +1,33 @@
+{
+  "id": "diff_0033",
+  "case_index": 188,
+  "verdict": "ERROR_CATEGORY_MISMATCH",
+  "tags": [
+    "field_added",
+    "field_removed",
+    "mutation",
+    "unknown_type"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0033.orig.bin",
+    "size": 43,
+    "hex": "030008c355020c043ea8cb03044437cdf701000703000167011a72000001000003000891e5b1a8de6ed0d5"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0033.min.bin",
+    "size": 14,
+    "hex": "030008c35502044437cdf7010007"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "error",
+      "category": "TRUNCATED_PAYLOAD",
+      "detail": "declared 7 bytes, only 0 left"
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

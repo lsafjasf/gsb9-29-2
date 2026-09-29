@@ -1,0 +1,30 @@
+{
+  "id": "diff_0045",
+  "case_index": 260,
+  "verdict": "ERROR_CATEGORY_MISMATCH",
+  "tags": [
+    "truncated"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0045.orig.bin",
+    "size": 14,
+    "hex": "03000834936f4d917fbf4a020001"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0045.min.bin",
+    "size": 14,
+    "hex": "03000834936f4d917fbf4a020001"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "error",
+      "category": "TRUNCATED_PAYLOAD",
+      "detail": "declared 1 bytes, only 0 left"
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

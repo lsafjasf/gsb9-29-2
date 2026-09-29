@@ -1,0 +1,189 @@
+{
+  "id": "diff_0025",
+  "case_index": 169,
+  "verdict": "ONE_SIDED",
+  "tags": [
+    "deep_nesting"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0025.orig.bin",
+    "size": 96,
+    "hex": "01005d01005a01005701005401005101004e01004b01004801004501004201003f01003c01003901003601003301003001002d01002a01002701002401002101001e01001b01001801001501001201000f01000c010009010006010003020000"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0025.min.bin",
+    "size": 96,
+    "hex": "01005d01005a01005701005401005101004e01004b01004801004501004201003f01003c01003901003601003301003001002d01002a01002701002401002101001e01001b01001801001501001201000f01000c010009010006010003020000"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "ok",
+      "value": [
+        {
+          "type": "node",
+          "children": [
+            {
+              "type": "node",
+              "children": [
+                {
+                  "type": "node",
+                  "children": [
+                    {
+                      "type": "node",
+                      "children": [
+                        {
+                          "type": "node",
+                          "children": [
+                            {
+                              "type": "node",
+                              "children": [
+                                {
+                                  "type": "node",
+                                  "children": [
+                                    {
+                                      "type": "node",
+                                      "children": [
+                                        {
+                                          "type": "node",
+                                          "children": [
+                                            {
+                                              "type": "node",
+                                              "children": [
+                                                {
+                                                  "type": "node",
+                                                  "children": [
+                                                    {
+                                                      "type": "node",
+                                                      "children": [
+                                                        {
+                                                          "type": "node",
+                                                          "children": [
+                                                            {
+                                                              "type": "node",
+                                                              "children": [
+                                                                {
+                                                                  "type": "node",
+                                                                  "children": [
+                                                                    {
+                                                                      "type": "node",
+                                                                      "children": [
+                                                                        {
+                                                                          "type": "node",
+                                                                          "children": [
+                                                                            {
+                                                                              "type": "node",
+                                                                              "children": [
+                                                                                {
+                                                                                  "type": "node",
+                                                                                  "children": [
+                                                                                    {
+                                                                                      "type": "node",
+                                                                                      "children": [
+                                                                                        {
+                                                                                          "type": "node",
+                                                                                          "children": [
+                                                                                            {
+                                                                                              "type": "node",
+                                                                                              "children": [
+                                                                                                {
+                                                                                                  "type": "node",
+                                                                                                  "children": [
+                                                                                                    {
+                                                                                                      "type": "node",
+                                                                                                      "children": [
+                                                                                                        {
+                                                                                                          "type": "node",
+                                                                                                          "children": [
+                                                                                                            {
+                                                                                                              "type": "node",
+                                                                                                              "children": [
+                                                                                                                {
+                                                                                                                  "type": "node",
+                                                                                                                  "children": [
+                                                                                                                    {
+                                                                                                                      "type": "node",
+                                                                                                                      "children": [
+                                                                                                                        {
+                                                                                                                          "type": "node",
+                                                                                                                          "children": [
+                                                                                                                            {
+                                                                                                                              "type": "node",
+                                                                                                                              "children": [
+                                                                                                                                {
+                                                                                                                                  "type": "node",
+                                                                                                                                  "children": [
+                                                                                                                                    {
+                                                                                                                                      "type": "str",
+                                                                                                                                      "value": ""
+                                                                                                                                    }
+                                                                                                                                  ]
+                                                                                                                                }
+                                                                                                                              ]
+                                                                                                                            }
+                                                                                                                          ]
+                                                                                                                        }
+                                                                                                                      ]
+                                                                                                                    }
+                                                                                                                  ]
+                                                                                                                }
+                                                                                                              ]
+                                                                                                            }
+                                                                                                          ]
+                                                                                                        }
+                                                                                                      ]
+                                                                                                    }
+                                                                                                  ]
+                                                                                                }
+                                                                                              ]
+                                                                                            }
+                                                                                          ]
+                                                                                        }
+                                                                                      ]
+                                                                                    }
+                                                                                  ]
+                                                                                }
+                                                                              ]
+                                                                            }
+                                                                          ]
+                                                                        }
+                                                                      ]
+                                                                    }
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          ]
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "DEPTH_EXCEEDED",
+      "detail": "nesting deeper than 32"
+    }
+  }
+}

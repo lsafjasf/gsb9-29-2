@@ -1,0 +1,32 @@
+{
+  "id": "diff_0008",
+  "case_index": 47,
+  "verdict": "ERROR_CATEGORY_MISMATCH",
+  "tags": [
+    "field_added",
+    "mutation",
+    "unknown_type"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0008.orig.bin",
+    "size": 201,
+    "hex": "030002469501004e030008cf7c87ddcdd8e8dc0300019303000185776c01000001003503000893db175c4ed8ff4d01000001002402001c5962386262e696872062e7aca63131e696872a33e696873009095809e6960300026c7601006c01006202000ae4b8ad61e6968730310901000f0300028e59020007583062305a2030010039034008a568e07f295d7b9302000c5a636330095a615909e4b8ad020017303120615830203059e7aca6e4b8ad09e6968730e4b8ad030002302303000467c4096f0300044f8afd8c"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0008.min.bin",
+    "size": 14,
+    "hex": "0300086c01000001003503000893"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "error",
+      "category": "TRUNCATED_PAYLOAD",
+      "detail": "declared 2195 bytes, only 0 left"
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

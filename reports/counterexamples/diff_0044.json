@@ -1,0 +1,31 @@
+{
+  "id": "diff_0044",
+  "case_index": 256,
+  "verdict": "ERROR_CATEGORY_MISMATCH",
+  "tags": [
+    "boundary_length",
+    "valid"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0044.orig.bin",
+    "size": 185,
+    "hex": "0100b601002c0200196120625ae5ad975809e69687e5ad97093031206131e5ad970903000801fa1a7876722e22030002e40201006e02001262383861313859e4b8ad5962e69687205958020005e696875838020020e4b8ad61e69687e4b8ad38e7aca6e6968759623061625ae5ad976338386330630200205809632031e5ad9709e5ad9731e69687e4b8ad0963e6968720595ae5ad9709590300081f22b82766debd3702000c30e5ad97e6968759315a59e60300044dcb2e9f"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0044.min.bin",
+    "size": 26,
+    "hex": "0300081f22b82766debd3702000c30e5ad97e6968759315a59e6"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "error",
+      "category": "INVALID_UTF8",
+      "detail": "'utf-8' codec can't decode byte 0xe6 in position 11: unexpected end of data"
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "diff_0021",
+  "case_index": 126,
+  "verdict": "ERROR_CATEGORY_MISMATCH",
+  "tags": [
+    "boundary_length",
+    "valid"
+  ],
+  "original": {
+    "path": "counterexamples/diff_0021.orig.bin",
+    "size": 265,
+    "hex": "0100d2020015e5ad97202063e4b8ade69687e5ad97582009582031030001d801009a01000b0300082cb0b48da337214c03000213ff01002f010000010007030004f7be4ac901000002000a583038e5ad9730e69687030002be3b02000ae696873162e5ad97305802000859e6968762e69687030001d7010043020002e69602000361e7ac010035020016e4b8ad596209095ae7aca65a59635930e4b8ade7aca6020013e5ad975a095809205a30615962e5ad97615a580200000200000300084937e21d16cf34cf0300081989e10995a6ac290100000100310200025962010029020012633859e5ad975820585958e7aca6316161380300042d13135001000a02000263e70300029813"
+  },
+  "minimized": {
+    "path": "counterexamples/diff_0021.min.bin",
+    "size": 16,
+    "hex": "0300081989e10995a6ac2902000263e7"
+  },
+  "outputs": {
+    "parsers.reference:parse": {
+      "status": "error",
+      "category": "INVALID_UTF8",
+      "detail": "'utf-8' codec can't decode byte 0xe7 in position 1: unexpected end of data"
+    },
+    "parsers.candidate:parse": {
+      "status": "error",
+      "category": "UINT_BAD_LENGTH",
+      "detail": "uint payload must be 1..8 bytes, got 8"
+    }
+  }
+}
