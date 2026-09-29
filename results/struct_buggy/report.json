@@ -1,0 +1,54 @@
+{
+  "counts": {
+    "crash": 97,
+    "ok": 501,
+    "timeout": 2
+  },
+  "crashes": [
+    {
+      "category": "crash",
+      "file": "results/struct_buggy/crashes/crash_000_IndexError.bin",
+      "minimized_size": 6,
+      "original_size": 1117,
+      "signature": "IndexError"
+    },
+    {
+      "category": "crash",
+      "file": "results/struct_buggy/crashes/crash_001_AssertionError.bin",
+      "minimized_size": 9,
+      "original_size": 17,
+      "signature": "AssertionError"
+    },
+    {
+      "category": "crash",
+      "file": "results/struct_buggy/crashes/crash_002_RecursionError.bin",
+      "minimized_size": 3008,
+      "original_size": 3081,
+      "signature": "RecursionError"
+    },
+    {
+      "category": "timeout",
+      "file": "results/struct_buggy/crashes/crash_003_timeout.bin",
+      "minimized_size": 65787,
+      "original_size": 65787,
+      "signature": "timeout"
+    }
+  ],
+  "detection_rate": 0.165,
+  "detections": 99,
+  "executed": 600,
+  "iterations": 600,
+  "max_depth_accepted": 847,
+  "max_depth_generated": 1071,
+  "mode": "struct",
+  "parser": "buggy",
+  "reached_field_stage_rate": 1.0,
+  "seed": 20260930,
+  "sequence_sha256": "03153ecbfbe9724d2d676a9d451c6d8ee79419a31c681aec6ac71d42c2772bf1",
+  "unique_signatures": {
+    "AssertionError": 26,
+    "IndexError": 70,
+    "RecursionError": 1,
+    "timeout": 2
+  }
+}

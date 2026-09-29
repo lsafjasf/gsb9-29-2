@@ -1,0 +1,21 @@
+{
+  "counts": {
+    "ok": 254,
+    "reject_field": 217,
+    "reject_header": 110,
+    "reject_semantic": 19
+  },
+  "crashes": [],
+  "detection_rate": 0.0,
+  "detections": 0,
+  "executed": 600,
+  "iterations": 600,
+  "max_depth_accepted": 64,
+  "max_depth_generated": 770,
+  "mode": "struct",
+  "parser": "hardened",
+  "reached_field_stage_rate": 0.8166666666666667,
+  "seed": 20260930,
+  "sequence_sha256": "161bdd1198bb88e4658c17079385ccf10440a29986001aff960765e06db9e8e3",
+  "unique_signatures": {}
+}

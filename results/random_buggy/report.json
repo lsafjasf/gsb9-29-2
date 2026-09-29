@@ -1,0 +1,38 @@
+{
+  "counts": {
+    "crash": 93,
+    "ok": 402,
+    "reject_header": 105
+  },
+  "crashes": [
+    {
+      "category": "crash",
+      "file": "results/random_buggy/crashes/crash_000_AssertionError.bin",
+      "minimized_size": 9,
+      "original_size": 41,
+      "signature": "AssertionError"
+    },
+    {
+      "category": "crash",
+      "file": "results/random_buggy/crashes/crash_001_IndexError.bin",
+      "minimized_size": 564,
+      "original_size": 788,
+      "signature": "IndexError"
+    }
+  ],
+  "detection_rate": 0.155,
+  "detections": 93,
+  "executed": 600,
+  "iterations": 600,
+  "max_depth_accepted": 256,
+  "max_depth_generated": 256,
+  "mode": "random",
+  "parser": "buggy",
+  "reached_field_stage_rate": 0.825,
+  "seed": 20260930,
+  "sequence_sha256": "d86f0efa4a24fa930b12770992f4542f69f2f7d1632e47ab71d49557f957f5e5",
+  "unique_signatures": {
+    "AssertionError": 21,
+    "IndexError": 72
+  }
+}
