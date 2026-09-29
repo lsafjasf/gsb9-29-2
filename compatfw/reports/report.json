@@ -1,0 +1,304 @@
+{
+  "cells": [
+    {
+      "scenario": "baseline",
+      "producer": "W1",
+      "reader": "R1",
+      "expected": "EQUIV",
+      "expected_reason": null,
+      "verdict": "EQUIV",
+      "matched": true,
+      "evidence": "明文逐字节等价：长度 5000，SHA256=8960c2e41865b58c…；读取方原生支持 v1，无需转换",
+      "detail": {
+        "got_len": 5000,
+        "sha256": "8960c2e41865b58c",
+        "file_version": 1,
+        "needs_conversion": false,
+        "block_size": 1024,
+        "block_count": 5
+      }
+    },
+    {
+      "scenario": "baseline",
+      "producer": "W1",
+      "reader": "R2",
+      "expected": "CONVERT",
+      "expected_reason": null,
+      "verdict": "CONVERT",
+      "matched": true,
+      "evidence": "明文逐字节等价：长度 5000，SHA256=8960c2e41865b58c…；文件为旧版 v1，读取方报告 needs_conversion=True，结论：可读但需转换",
+      "detail": {
+        "got_len": 5000,
+        "sha256": "8960c2e41865b58c",
+        "file_version": 1,
+        "needs_conversion": true,
+        "block_size": 1024,
+        "block_count": 5
+      }
+    },
+    {
+      "scenario": "baseline",
+      "producer": "W2",
+      "reader": "R1",
+      "expected": "REJECT",
+      "expected_reason": "unsupported_version",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 UnsupportedVersionError，原因码 reason=unsupported_version（读取方不支持文件格式版本（旧程序读新文件））；未返回部分明文",
+      "detail": {
+        "reason": "unsupported_version"
+      }
+    },
+    {
+      "scenario": "baseline",
+      "producer": "W2",
+      "reader": "R2",
+      "expected": "EQUIV",
+      "expected_reason": null,
+      "verdict": "EQUIV",
+      "matched": true,
+      "evidence": "明文逐字节等价：长度 5000，SHA256=8960c2e41865b58c…；读取方原生支持 v2，无需转换",
+      "detail": {
+        "got_len": 5000,
+        "sha256": "8960c2e41865b58c",
+        "file_version": 2,
+        "needs_conversion": false,
+        "block_size": 2048,
+        "block_count": 3
+      }
+    },
+    {
+      "scenario": "bigblock",
+      "producer": "W1",
+      "reader": "R1",
+      "expected": "REJECT",
+      "expected_reason": "unsupported_block_size",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 UnsupportedBlockSizeError，原因码 reason=unsupported_block_size（块大小超出读取方支持范围）；未返回部分明文",
+      "detail": {
+        "reason": "unsupported_block_size"
+      }
+    },
+    {
+      "scenario": "bigblock",
+      "producer": "W1",
+      "reader": "R2",
+      "expected": "CONVERT",
+      "expected_reason": null,
+      "verdict": "CONVERT",
+      "matched": true,
+      "evidence": "明文逐字节等价：长度 5000，SHA256=8960c2e41865b58c…；文件为旧版 v1，读取方报告 needs_conversion=True，结论：可读但需转换",
+      "detail": {
+        "got_len": 5000,
+        "sha256": "8960c2e41865b58c",
+        "file_version": 1,
+        "needs_conversion": true,
+        "block_size": 2048,
+        "block_count": 5
+      }
+    },
+    {
+      "scenario": "smallblock",
+      "producer": "W1",
+      "reader": "R1",
+      "expected": "REJECT",
+      "expected_reason": "block_too_large",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_too_large（块长度超过声明的块大小）；未返回部分明文",
+      "detail": {
+        "reason": "block_too_large"
+      }
+    },
+    {
+      "scenario": "smallblock",
+      "producer": "W1",
+      "reader": "R2",
+      "expected": "REJECT",
+      "expected_reason": "block_too_large",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_too_large（块长度超过声明的块大小）；未返回部分明文",
+      "detail": {
+        "reason": "block_too_large"
+      }
+    },
+    {
+      "scenario": "key_missing",
+      "producer": "W1",
+      "reader": "R1",
+      "expected": "REJECT",
+      "expected_reason": "key_not_found",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 KeyNotFoundError，原因码 reason=key_not_found（密钥环缺少文件头声明的 key_version）；未返回部分明文",
+      "detail": {
+        "reason": "key_not_found"
+      }
+    },
+    {
+      "scenario": "key_missing",
+      "producer": "W1",
+      "reader": "R2",
+      "expected": "REJECT",
+      "expected_reason": "key_not_found",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 KeyNotFoundError，原因码 reason=key_not_found（密钥环缺少文件头声明的 key_version）；未返回部分明文",
+      "detail": {
+        "reason": "key_not_found"
+      }
+    },
+    {
+      "scenario": "key_missing",
+      "producer": "W2",
+      "reader": "R1",
+      "expected": "REJECT",
+      "expected_reason": "unsupported_version",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 UnsupportedVersionError，原因码 reason=unsupported_version（读取方不支持文件格式版本（旧程序读新文件））；未返回部分明文",
+      "detail": {
+        "reason": "unsupported_version"
+      }
+    },
+    {
+      "scenario": "key_missing",
+      "producer": "W2",
+      "reader": "R2",
+      "expected": "REJECT",
+      "expected_reason": "key_not_found",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 KeyNotFoundError，原因码 reason=key_not_found（密钥环缺少文件头声明的 key_version）；未返回部分明文",
+      "detail": {
+        "reason": "key_not_found"
+      }
+    },
+    {
+      "scenario": "block_tampered",
+      "producer": "W1",
+      "reader": "R1",
+      "expected": "REJECT",
+      "expected_reason": "block_mac_mismatch",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_mac_mismatch（数据块 HMAC 校验失败（块被篡改或密钥不匹配））；未返回部分明文",
+      "detail": {
+        "reason": "block_mac_mismatch"
+      }
+    },
+    {
+      "scenario": "block_tampered",
+      "producer": "W1",
+      "reader": "R2",
+      "expected": "REJECT",
+      "expected_reason": "block_mac_mismatch",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_mac_mismatch（数据块 HMAC 校验失败（块被篡改或密钥不匹配））；未返回部分明文",
+      "detail": {
+        "reason": "block_mac_mismatch"
+      }
+    },
+    {
+      "scenario": "block_tampered",
+      "producer": "W2",
+      "reader": "R1",
+      "expected": "REJECT",
+      "expected_reason": "unsupported_version",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 UnsupportedVersionError，原因码 reason=unsupported_version（读取方不支持文件格式版本（旧程序读新文件））；未返回部分明文",
+      "detail": {
+        "reason": "unsupported_version"
+      }
+    },
+    {
+      "scenario": "block_tampered",
+      "producer": "W2",
+      "reader": "R2",
+      "expected": "REJECT",
+      "expected_reason": "block_mac_mismatch",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_mac_mismatch（数据块 HMAC 校验失败（块被篡改或密钥不匹配））；未返回部分明文",
+      "detail": {
+        "reason": "block_mac_mismatch"
+      }
+    },
+    {
+      "scenario": "truncated",
+      "producer": "W1",
+      "reader": "R1",
+      "expected": "REJECT",
+      "expected_reason": "truncated",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=truncated（文件/块截断，声明的块未完整出现）；未返回部分明文",
+      "detail": {
+        "reason": "truncated"
+      }
+    },
+    {
+      "scenario": "truncated",
+      "producer": "W1",
+      "reader": "R2",
+      "expected": "REJECT",
+      "expected_reason": "truncated",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=truncated（文件/块截断，声明的块未完整出现）；未返回部分明文",
+      "detail": {
+        "reason": "truncated"
+      }
+    },
+    {
+      "scenario": "truncated",
+      "producer": "W2",
+      "reader": "R1",
+      "expected": "REJECT",
+      "expected_reason": "unsupported_version",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 UnsupportedVersionError，原因码 reason=unsupported_version（读取方不支持文件格式版本（旧程序读新文件））；未返回部分明文",
+      "detail": {
+        "reason": "unsupported_version"
+      }
+    },
+    {
+      "scenario": "truncated",
+      "producer": "W2",
+      "reader": "R2",
+      "expected": "REJECT",
+      "expected_reason": "truncated",
+      "verdict": "REJECT",
+      "matched": true,
+      "evidence": "明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=truncated（文件/块截断，声明的块未完整出现）；未返回部分明文",
+      "detail": {
+        "reason": "truncated"
+      }
+    }
+  ],
+  "conversion_check": {
+    "ok": true,
+    "evidence": "R2 读取 v1 样例（5292 字节）→ 等价且 needs_conversion=True → W2 重写（5212 字节）→ R2 再读等价且无需转换；SHA256=8960c2e41865b58c…",
+    "detail": {
+      "v1_size": 5292,
+      "v2_size": 5212,
+      "sha256": "8960c2e41865b58c"
+    }
+  },
+  "summary": {
+    "EQUIV": 2,
+    "CONVERT": 2,
+    "REJECT": 16,
+    "PARTIAL": 0,
+    "FAIL": 0,
+    "ERROR": 0,
+    "NA": 0,
+    "unexpected": 0,
+    "total": 20
+  }
+}

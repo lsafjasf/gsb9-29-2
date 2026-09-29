@@ -1,0 +1,10 @@
+{
+  "block_count": 5,
+  "block_size": 1024,
+  "key_version": 1,
+  "nonce_hex": "00000000000000000000000000000000",
+  "plaintext_len": 5000,
+  "plaintext_sha256": "8960c2e41865b58cd7d30a9a892800aa8724fbb81b847c6b3148cf6715e5213f",
+  "sample_sha256": "56985d2354026aaae51f4e70a1ce4fa84aa530563c21659ee774e654c922e577",
+  "version": 1
+}

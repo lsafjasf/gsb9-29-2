@@ -1,0 +1,22 @@
+test_any_unexpected_cell_fails_matrix_run (test_buggy_implementations.BuggyImplementationTests.test_any_unexpected_cell_fails_matrix_run)
+矩阵级断言：20 格中只要有一格 matched=False，整体检查即失败。 ... ok
+test_correct_implementation_still_passes (test_buggy_implementations.BuggyImplementationTests.test_correct_implementation_still_passes)
+对照组：真实 R2 读 v1 必须是 CONVERT，确保上面的失败确实来自错误实现。 ... ok
+test_lenient_mac_on_tampered_file_must_fail (test_buggy_implementations.BuggyImplementationTests.test_lenient_mac_on_tampered_file_must_fail) ... ok
+test_non_conforming_exception_is_error (test_buggy_implementations.BuggyImplementationTests.test_non_conforming_exception_is_error) ... ok
+test_partial_read_is_never_pass (test_buggy_implementations.BuggyImplementationTests.test_partial_read_is_never_pass) ... ok
+test_silent_truncation_must_fail (test_buggy_implementations.BuggyImplementationTests.test_silent_truncation_must_fail) ... ok
+test_baseline_semantics_directly (test_matrix.MatrixExpectationTests.test_baseline_semantics_directly) ... ok
+test_cell_counts (test_matrix.MatrixExpectationTests.test_cell_counts) ... ok
+test_conversion_path_is_real (test_matrix.MatrixExpectationTests.test_conversion_path_is_real) ... ok
+test_fixtures_are_reproducible (test_matrix.MatrixExpectationTests.test_fixtures_are_reproducible)
+重新生成样例必须与已提交样例逐字节一致（固定密钥/nonce/明文）。 ... ok
+test_full_matrix_matches_expected (test_matrix.MatrixExpectationTests.test_full_matrix_matches_expected) ... ok
+test_no_partial_fail_error_verdicts (test_matrix.MatrixExpectationTests.test_no_partial_fail_error_verdicts) ... ok
+test_reject_cells_have_expected_reason (test_matrix.MatrixExpectationTests.test_reject_cells_have_expected_reason) ... ok
+test_tampered_file_never_decrypts (test_matrix.MatrixExpectationTests.test_tampered_file_never_decrypts) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.028s
+
+OK

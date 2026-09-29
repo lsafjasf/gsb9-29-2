@@ -1,0 +1,35 @@
+# 加密文件格式跨版本兼容矩阵
+
+判定：`EQUIV`=可读且内容逐字节等价；`CONVERT`=可读但需转换；`REJECT`=明确拒绝（附原因码）。
+`PARTIAL`/`FAIL`/`ERROR` 均为不通过。
+
+| 场景 | 生产者 | 读取方 | 结论 | 拒绝原因 | 符合期望 | 依据 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 基线跨版本读写 | W1 | R1 | **EQUIV** |  | 是 | 明文逐字节等价：长度 5000，SHA256=8960c2e41865b58c…；读取方原生支持 v1，无需转换 |
+| 基线跨版本读写 | W1 | R2 | **CONVERT** |  | 是 | 明文逐字节等价：长度 5000，SHA256=8960c2e41865b58c…；文件为旧版 v1，读取方报告 needs_conversion=True，结论：可读但需转换 |
+| 基线跨版本读写 | W2 | R1 | **REJECT** | unsupported_version | 是 | 明确拒绝：读取阶段抛出 UnsupportedVersionError，原因码 reason=unsupported_version（读取方不支持文件格式版本（旧程序读新文件））；未返回部分明文 |
+| 基线跨版本读写 | W2 | R2 | **EQUIV** |  | 是 | 明文逐字节等价：长度 5000，SHA256=8960c2e41865b58c…；读取方原生支持 v2，无需转换 |
+| 块大小变化：声明变大(1024->2048) | W1 | R1 | **REJECT** | unsupported_block_size | 是 | 明确拒绝：读取阶段抛出 UnsupportedBlockSizeError，原因码 reason=unsupported_block_size（块大小超出读取方支持范围）；未返回部分明文 |
+| 块大小变化：声明变大(1024->2048) | W1 | R2 | **CONVERT** |  | 是 | 明文逐字节等价：长度 5000，SHA256=8960c2e41865b58c…；文件为旧版 v1，读取方报告 needs_conversion=True，结论：可读但需转换 |
+| 块大小变化：声明变小(1024->512) | W1 | R1 | **REJECT** | block_too_large | 是 | 明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_too_large（块长度超过声明的块大小）；未返回部分明文 |
+| 块大小变化：声明变小(1024->512) | W1 | R2 | **REJECT** | block_too_large | 是 | 明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_too_large（块长度超过声明的块大小）；未返回部分明文 |
+| 密钥版本缺失 | W1 | R1 | **REJECT** | key_not_found | 是 | 明确拒绝：读取阶段抛出 KeyNotFoundError，原因码 reason=key_not_found（密钥环缺少文件头声明的 key_version）；未返回部分明文 |
+| 密钥版本缺失 | W1 | R2 | **REJECT** | key_not_found | 是 | 明确拒绝：读取阶段抛出 KeyNotFoundError，原因码 reason=key_not_found（密钥环缺少文件头声明的 key_version）；未返回部分明文 |
+| 密钥版本缺失 | W2 | R1 | **REJECT** | unsupported_version | 是 | 明确拒绝：读取阶段抛出 UnsupportedVersionError，原因码 reason=unsupported_version（读取方不支持文件格式版本（旧程序读新文件））；未返回部分明文 |
+| 密钥版本缺失 | W2 | R2 | **REJECT** | key_not_found | 是 | 明确拒绝：读取阶段抛出 KeyNotFoundError，原因码 reason=key_not_found（密钥环缺少文件头声明的 key_version）；未返回部分明文 |
+| 数据块被篡改 | W1 | R1 | **REJECT** | block_mac_mismatch | 是 | 明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_mac_mismatch（数据块 HMAC 校验失败（块被篡改或密钥不匹配））；未返回部分明文 |
+| 数据块被篡改 | W1 | R2 | **REJECT** | block_mac_mismatch | 是 | 明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_mac_mismatch（数据块 HMAC 校验失败（块被篡改或密钥不匹配））；未返回部分明文 |
+| 数据块被篡改 | W2 | R1 | **REJECT** | unsupported_version | 是 | 明确拒绝：读取阶段抛出 UnsupportedVersionError，原因码 reason=unsupported_version（读取方不支持文件格式版本（旧程序读新文件））；未返回部分明文 |
+| 数据块被篡改 | W2 | R2 | **REJECT** | block_mac_mismatch | 是 | 明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=block_mac_mismatch（数据块 HMAC 校验失败（块被篡改或密钥不匹配））；未返回部分明文 |
+| 文件截断(丢末块) | W1 | R1 | **REJECT** | truncated | 是 | 明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=truncated（文件/块截断，声明的块未完整出现）；未返回部分明文 |
+| 文件截断(丢末块) | W1 | R2 | **REJECT** | truncated | 是 | 明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=truncated（文件/块截断，声明的块未完整出现）；未返回部分明文 |
+| 文件截断(丢末块) | W2 | R1 | **REJECT** | unsupported_version | 是 | 明确拒绝：读取阶段抛出 UnsupportedVersionError，原因码 reason=unsupported_version（读取方不支持文件格式版本（旧程序读新文件））；未返回部分明文 |
+| 文件截断(丢末块) | W2 | R2 | **REJECT** | truncated | 是 | 明确拒绝：读取阶段抛出 IntegrityError，原因码 reason=truncated（文件/块截断，声明的块未完整出现）；未返回部分明文 |
+
+## 转换路径检查
+
+结果：**通过**
+
+R2 读取 v1 样例（5292 字节）→ 等价且 needs_conversion=True → W2 重写（5212 字节）→ R2 再读等价且无需转换；SHA256=8960c2e41865b58c…
+
+统计：EQUIV=2  CONVERT=2  REJECT=16  PARTIAL=0  FAIL=0  ERROR=0  NA=0  unexpected=0  total=20
