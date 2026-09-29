@@ -1,0 +1,10 @@
+{
+  "name": "etm-aead",
+  "version": "1.0.0",
+  "description": "Encrypt-then-MAC authenticated sealing (AES-256-CTR + HMAC-SHA256), stdlib only",
+  "type": "commonjs",
+  "main": "etm.js",
+  "scripts": {
+    "test": "node etm.test.js"
+  }
+}
