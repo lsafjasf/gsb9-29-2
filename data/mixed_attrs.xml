@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- comment -->
+<order xmlns="urn:order" xmlns:o="urn:other" xmlns:m="urn:meta">
+  <o:item o:code="A&amp;B" plain="no-ns" xml:lang="en">
+    <m:note><![CDATA[<raw> & stuff]]></m:note>
+    <?pi ignored?>
+  </o:item>
+  <o:item xmlns:o="urn:other2" o:code="redefined"/>
+</order>

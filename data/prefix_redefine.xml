@@ -1,0 +1,10 @@
+<a xmlns:p="urn:one">
+  <p:x p:attr="outer">
+    <b xmlns:p="urn:two">
+      <p:y p:attr="inner"/>
+      <c xmlns:p="urn:three"><p:w/></c>
+      <p:y2/>
+    </b>
+    <p:z/>
+  </p:x>
+</a>

@@ -1,0 +1,13 @@
+<l0 xmlns:n="urn:l0">
+  <n:a>
+    <l1 xmlns:n="urn:l1">
+      <n:b>
+        <l2 xmlns:n="urn:l2"><n:c n:k="deep"/></l2>
+        <n:d/>
+      </n:b>
+    </l1>
+    <n:e/>
+  </n:a>
+  <sibling xmlns:q="urn:only-here"><q:f/></sibling>
+  <n:g/>
+</l0>

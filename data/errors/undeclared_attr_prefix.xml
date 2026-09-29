@@ -1,0 +1,3 @@
+<root xmlns:good="urn:good">
+  <item good:ok="1" bad:nope="2"/>
+</root>

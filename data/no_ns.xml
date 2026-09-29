@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<catalog>
+  <book id="b1" lang="en">
+    <title>Plain</title>
+    <price currency="USD">9.99</price>
+  </book>
+  <empty/>
+</catalog>

@@ -1,0 +1,6 @@
+<root>
+  <ok/>
+  <broken>
+    <oops:child/>
+  </broken>
+</root>

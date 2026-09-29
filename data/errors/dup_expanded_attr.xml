@@ -1,0 +1,3 @@
+<r xmlns:a="urn:same" xmlns:b="urn:same">
+  <e a:x="1" b:x="2"/>
+</r>

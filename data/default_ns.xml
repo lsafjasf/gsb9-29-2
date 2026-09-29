@@ -1,0 +1,8 @@
+<root xmlns="urn:default" version="1">
+  <child kind="a">
+    <grand>text</grand>
+  </child>
+  <plain xmlns="">
+    <back attr="v">no namespace here</back>
+  </plain>
+</root>
