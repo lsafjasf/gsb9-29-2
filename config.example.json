@@ -1,0 +1,10 @@
+{
+  "db": {
+    "host": "${secret:${secret:which-db}}",
+    "password": "${secret:db/password}"
+  },
+  "api": {
+    "key": "${secret:api/key}"
+  },
+  "plain": "no references here"
+}
