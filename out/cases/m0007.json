@@ -1,0 +1,21 @@
+{
+  "id": "m0007",
+  "category": "ERROR_MISMATCH",
+  "category_label": "两边都失败但错误类别不同",
+  "strategy": "illegal_sequence",
+  "original_len": 11,
+  "minimized_len": 4,
+  "original_file": "cases/m0007.orig.bin",
+  "minimized_file": "cases/m0007.min.bin",
+  "minimized_hex": "ab020000",
+  "output_a": {
+    "ok": false,
+    "value": null,
+    "error": "Truncated"
+  },
+  "output_b": {
+    "ok": false,
+    "value": null,
+    "error": "EmptyString"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "m0006",
+  "category": "ERROR_MISMATCH",
+  "category_label": "两边都失败但错误类别不同",
+  "strategy": "illegal_sequence",
+  "original_len": 69,
+  "minimized_len": 9,
+  "original_file": "cases/m0006.orig.bin",
+  "minimized_file": "cases/m0006.min.bin",
+  "minimized_hex": "ab0300010300000000",
+  "output_a": {
+    "ok": false,
+    "value": null,
+    "error": "BadUintSize"
+  },
+  "output_b": {
+    "ok": false,
+    "value": null,
+    "error": "Truncated"
+  }
+}

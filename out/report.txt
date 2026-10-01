@@ -1,0 +1,68 @@
+差分测试报告
+============================================================
+用例总数: 1000  结果一致: 734
+一边成功一边失败: 163  错误类别不同: 103  结果值不同: 0
+去重后的差异签名数: 8
+
+覆盖率
+------------------------------------------------------------
+生成策略命中: {'length_boundary': 213, 'nesting': 210, 'random_tree': 198, 'field_mutation': 192, 'illegal_sequence': 183}
+边界情形命中: {'empty': 1, 'oversized': 1, 'deep': 1, 'all_illegal': 1}
+最大生成深度: 11  最大报文字节: 5141
+实现 A 错误类别: {'BadMagic': 67, 'TooLarge': 1, 'DepthExceeded': 64, 'BadUintSize': 347, 'Truncated': 60, 'BadType': 7}
+实现 B 错误类别: {'BadMagic': 67, 'TooLarge': 1, 'DepthExceeded': 153, 'EmptyString': 129, 'BadUintSize': 202, 'Truncated': 58, 'BadType': 7}
+
+覆盖率提示
+------------------------------------------------------------
+* 无
+
+差异与最小反例
+------------------------------------------------------------
+[m0001] 一边成功一边失败（策略 random_tree）  3B -> 3B
+  最小反例(hex): ab0200
+  实现 A 输出: {"ok": true, "value": [["str", ""]], "error": null}
+  实现 B 输出: {"ok": false, "value": null, "error": "EmptyString"}
+  样本文件: cases/m0001.min.bin（原始: cases/m0001.orig.bin）
+
+[m0002] 两边都失败但错误类别不同（策略 nesting）  20B -> 14B
+  最小反例(hex): ab030b0309030703000100000000
+  实现 A 输出: {"ok": false, "value": null, "error": "BadUintSize"}
+  实现 B 输出: {"ok": false, "value": null, "error": "DepthExceeded"}
+  样本文件: cases/m0002.min.bin（原始: cases/m0002.orig.bin）
+
+[m0003] 一边成功一边失败（策略 nesting）  6B -> 6B
+  最小反例(hex): ab0103000000
+  实现 A 输出: {"ok": false, "value": null, "error": "BadUintSize"}
+  实现 B 输出: {"ok": true, "value": [["uint", 0]], "error": null}
+  样本文件: cases/m0003.min.bin（原始: cases/m0003.orig.bin）
+
+[m0004] 两边都失败但错误类别不同（策略 length_boundary）  547B -> 5B
+  最小反例(hex): ab02000100
+  实现 A 输出: {"ok": false, "value": null, "error": "BadUintSize"}
+  实现 B 输出: {"ok": false, "value": null, "error": "EmptyString"}
+  样本文件: cases/m0004.min.bin（原始: cases/m0004.orig.bin）
+
+[m0005] 一边成功一边失败（策略 nesting）  11B -> 11B
+  最小反例(hex): ab03080306030403000200
+  实现 A 输出: {"ok": true, "value": [["group", [["group", [["group", [["group", []], ["str", ""]]]]]]]], "error": null}
+  实现 B 输出: {"ok": false, "value": null, "error": "DepthExceeded"}
+  样本文件: cases/m0005.min.bin（原始: cases/m0005.orig.bin）
+
+[m0006] 两边都失败但错误类别不同（策略 illegal_sequence）  69B -> 9B
+  最小反例(hex): ab0300010300000000
+  实现 A 输出: {"ok": false, "value": null, "error": "BadUintSize"}
+  实现 B 输出: {"ok": false, "value": null, "error": "Truncated"}
+  样本文件: cases/m0006.min.bin（原始: cases/m0006.orig.bin）
+
+[m0007] 两边都失败但错误类别不同（策略 illegal_sequence）  11B -> 4B
+  最小反例(hex): ab020000
+  实现 A 输出: {"ok": false, "value": null, "error": "Truncated"}
+  实现 B 输出: {"ok": false, "value": null, "error": "EmptyString"}
+  样本文件: cases/m0007.min.bin（原始: cases/m0007.orig.bin）
+
+[m0008] 两边都失败但错误类别不同（策略 illegal_sequence）  53B -> 49B
+  最小反例(hex): ab030001040000000001040000000002080000000000000000031603140302030000bd0000000000000000000000000000
+  实现 A 输出: {"ok": false, "value": null, "error": "Truncated"}
+  实现 B 输出: {"ok": false, "value": null, "error": "DepthExceeded"}
+  样本文件: cases/m0008.min.bin（原始: cases/m0008.orig.bin）
+

@@ -1,0 +1,45 @@
+{
+  "id": "m0005",
+  "category": "OUTCOME_MISMATCH",
+  "category_label": "一边成功一边失败",
+  "strategy": "nesting",
+  "original_len": 11,
+  "minimized_len": 11,
+  "original_file": "cases/m0005.orig.bin",
+  "minimized_file": "cases/m0005.min.bin",
+  "minimized_hex": "ab03080306030403000200",
+  "output_a": {
+    "ok": true,
+    "value": [
+      [
+        "group",
+        [
+          [
+            "group",
+            [
+              [
+                "group",
+                [
+                  [
+                    "group",
+                    []
+                  ],
+                  [
+                    "str",
+                    ""
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ],
+    "error": null
+  },
+  "output_b": {
+    "ok": false,
+    "value": null,
+    "error": "DepthExceeded"
+  }
+}

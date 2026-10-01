@@ -1,0 +1,21 @@
+{
+  "id": "m0008",
+  "category": "ERROR_MISMATCH",
+  "category_label": "两边都失败但错误类别不同",
+  "strategy": "illegal_sequence",
+  "original_len": 53,
+  "minimized_len": 49,
+  "original_file": "cases/m0008.orig.bin",
+  "minimized_file": "cases/m0008.min.bin",
+  "minimized_hex": "ab030001040000000001040000000002080000000000000000031603140302030000bd0000000000000000000000000000",
+  "output_a": {
+    "ok": false,
+    "value": null,
+    "error": "Truncated"
+  },
+  "output_b": {
+    "ok": false,
+    "value": null,
+    "error": "DepthExceeded"
+  }
+}

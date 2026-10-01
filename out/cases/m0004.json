@@ -1,0 +1,21 @@
+{
+  "id": "m0004",
+  "category": "ERROR_MISMATCH",
+  "category_label": "两边都失败但错误类别不同",
+  "strategy": "length_boundary",
+  "original_len": 547,
+  "minimized_len": 5,
+  "original_file": "cases/m0004.orig.bin",
+  "minimized_file": "cases/m0004.min.bin",
+  "minimized_hex": "ab02000100",
+  "output_a": {
+    "ok": false,
+    "value": null,
+    "error": "BadUintSize"
+  },
+  "output_b": {
+    "ok": false,
+    "value": null,
+    "error": "EmptyString"
+  }
+}

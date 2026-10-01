@@ -1,0 +1,26 @@
+{
+  "id": "m0003",
+  "category": "OUTCOME_MISMATCH",
+  "category_label": "一边成功一边失败",
+  "strategy": "nesting",
+  "original_len": 6,
+  "minimized_len": 6,
+  "original_file": "cases/m0003.orig.bin",
+  "minimized_file": "cases/m0003.min.bin",
+  "minimized_hex": "ab0103000000",
+  "output_a": {
+    "ok": false,
+    "value": null,
+    "error": "BadUintSize"
+  },
+  "output_b": {
+    "ok": true,
+    "value": [
+      [
+        "uint",
+        0
+      ]
+    ],
+    "error": null
+  }
+}

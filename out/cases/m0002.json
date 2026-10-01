@@ -1,0 +1,21 @@
+{
+  "id": "m0002",
+  "category": "ERROR_MISMATCH",
+  "category_label": "两边都失败但错误类别不同",
+  "strategy": "nesting",
+  "original_len": 20,
+  "minimized_len": 14,
+  "original_file": "cases/m0002.orig.bin",
+  "minimized_file": "cases/m0002.min.bin",
+  "minimized_hex": "ab030b0309030703000100000000",
+  "output_a": {
+    "ok": false,
+    "value": null,
+    "error": "BadUintSize"
+  },
+  "output_b": {
+    "ok": false,
+    "value": null,
+    "error": "DepthExceeded"
+  }
+}

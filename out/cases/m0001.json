@@ -1,0 +1,26 @@
+{
+  "id": "m0001",
+  "category": "OUTCOME_MISMATCH",
+  "category_label": "一边成功一边失败",
+  "strategy": "random_tree",
+  "original_len": 3,
+  "minimized_len": 3,
+  "original_file": "cases/m0001.orig.bin",
+  "minimized_file": "cases/m0001.min.bin",
+  "minimized_hex": "ab0200",
+  "output_a": {
+    "ok": true,
+    "value": [
+      [
+        "str",
+        ""
+      ]
+    ],
+    "error": null
+  },
+  "output_b": {
+    "ok": false,
+    "value": null,
+    "error": "EmptyString"
+  }
+}

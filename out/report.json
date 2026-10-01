@@ -1,0 +1,266 @@
+{
+  "config": {
+    "cases": 1000,
+    "seed": 42,
+    "gen_max_depth": 6,
+    "nesting_depth": 12,
+    "deep_depth": 100,
+    "oversize_bytes": 5000,
+    "shrink_budget": 4000,
+    "outdir": "out"
+  },
+  "summary": {
+    "total_cases": 1000,
+    "match": 734,
+    "value_mismatch": 0,
+    "outcome_mismatch": 163,
+    "error_mismatch": 103,
+    "unique_mismatch_signatures": 8
+  },
+  "coverage": {
+    "total": 1000,
+    "strategy_counts": {
+      "length_boundary": 213,
+      "nesting": 210,
+      "random_tree": 198,
+      "field_mutation": 192,
+      "illegal_sequence": 183
+    },
+    "edge_counts": {
+      "empty": 1,
+      "oversized": 1,
+      "deep": 1,
+      "all_illegal": 1
+    },
+    "edge_unsupported": {},
+    "error_categories_a": {
+      "BadMagic": 67,
+      "TooLarge": 1,
+      "DepthExceeded": 64,
+      "BadUintSize": 347,
+      "Truncated": 60,
+      "BadType": 7
+    },
+    "error_categories_b": {
+      "BadMagic": 67,
+      "TooLarge": 1,
+      "DepthExceeded": 153,
+      "EmptyString": 129,
+      "BadUintSize": 202,
+      "Truncated": 58,
+      "BadType": 7
+    },
+    "case_categories": {
+      "MATCH": 734,
+      "OUTCOME_MISMATCH": 163,
+      "ERROR_MISMATCH": 103
+    },
+    "max_tree_depth_generated": 11,
+    "max_size_generated": 5141
+  },
+  "hints": [],
+  "mismatches": [
+    {
+      "id": "m0001",
+      "category": "OUTCOME_MISMATCH",
+      "category_label": "一边成功一边失败",
+      "strategy": "random_tree",
+      "original_len": 3,
+      "minimized_len": 3,
+      "original_file": "cases/m0001.orig.bin",
+      "minimized_file": "cases/m0001.min.bin",
+      "minimized_hex": "ab0200",
+      "output_a": {
+        "ok": true,
+        "value": [
+          [
+            "str",
+            ""
+          ]
+        ],
+        "error": null
+      },
+      "output_b": {
+        "ok": false,
+        "value": null,
+        "error": "EmptyString"
+      }
+    },
+    {
+      "id": "m0002",
+      "category": "ERROR_MISMATCH",
+      "category_label": "两边都失败但错误类别不同",
+      "strategy": "nesting",
+      "original_len": 20,
+      "minimized_len": 14,
+      "original_file": "cases/m0002.orig.bin",
+      "minimized_file": "cases/m0002.min.bin",
+      "minimized_hex": "ab030b0309030703000100000000",
+      "output_a": {
+        "ok": false,
+        "value": null,
+        "error": "BadUintSize"
+      },
+      "output_b": {
+        "ok": false,
+        "value": null,
+        "error": "DepthExceeded"
+      }
+    },
+    {
+      "id": "m0003",
+      "category": "OUTCOME_MISMATCH",
+      "category_label": "一边成功一边失败",
+      "strategy": "nesting",
+      "original_len": 6,
+      "minimized_len": 6,
+      "original_file": "cases/m0003.orig.bin",
+      "minimized_file": "cases/m0003.min.bin",
+      "minimized_hex": "ab0103000000",
+      "output_a": {
+        "ok": false,
+        "value": null,
+        "error": "BadUintSize"
+      },
+      "output_b": {
+        "ok": true,
+        "value": [
+          [
+            "uint",
+            0
+          ]
+        ],
+        "error": null
+      }
+    },
+    {
+      "id": "m0004",
+      "category": "ERROR_MISMATCH",
+      "category_label": "两边都失败但错误类别不同",
+      "strategy": "length_boundary",
+      "original_len": 547,
+      "minimized_len": 5,
+      "original_file": "cases/m0004.orig.bin",
+      "minimized_file": "cases/m0004.min.bin",
+      "minimized_hex": "ab02000100",
+      "output_a": {
+        "ok": false,
+        "value": null,
+        "error": "BadUintSize"
+      },
+      "output_b": {
+        "ok": false,
+        "value": null,
+        "error": "EmptyString"
+      }
+    },
+    {
+      "id": "m0005",
+      "category": "OUTCOME_MISMATCH",
+      "category_label": "一边成功一边失败",
+      "strategy": "nesting",
+      "original_len": 11,
+      "minimized_len": 11,
+      "original_file": "cases/m0005.orig.bin",
+      "minimized_file": "cases/m0005.min.bin",
+      "minimized_hex": "ab03080306030403000200",
+      "output_a": {
+        "ok": true,
+        "value": [
+          [
+            "group",
+            [
+              [
+                "group",
+                [
+                  [
+                    "group",
+                    [
+                      [
+                        "group",
+                        []
+                      ],
+                      [
+                        "str",
+                        ""
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        "error": null
+      },
+      "output_b": {
+        "ok": false,
+        "value": null,
+        "error": "DepthExceeded"
+      }
+    },
+    {
+      "id": "m0006",
+      "category": "ERROR_MISMATCH",
+      "category_label": "两边都失败但错误类别不同",
+      "strategy": "illegal_sequence",
+      "original_len": 69,
+      "minimized_len": 9,
+      "original_file": "cases/m0006.orig.bin",
+      "minimized_file": "cases/m0006.min.bin",
+      "minimized_hex": "ab0300010300000000",
+      "output_a": {
+        "ok": false,
+        "value": null,
+        "error": "BadUintSize"
+      },
+      "output_b": {
+        "ok": false,
+        "value": null,
+        "error": "Truncated"
+      }
+    },
+    {
+      "id": "m0007",
+      "category": "ERROR_MISMATCH",
+      "category_label": "两边都失败但错误类别不同",
+      "strategy": "illegal_sequence",
+      "original_len": 11,
+      "minimized_len": 4,
+      "original_file": "cases/m0007.orig.bin",
+      "minimized_file": "cases/m0007.min.bin",
+      "minimized_hex": "ab020000",
+      "output_a": {
+        "ok": false,
+        "value": null,
+        "error": "Truncated"
+      },
+      "output_b": {
+        "ok": false,
+        "value": null,
+        "error": "EmptyString"
+      }
+    },
+    {
+      "id": "m0008",
+      "category": "ERROR_MISMATCH",
+      "category_label": "两边都失败但错误类别不同",
+      "strategy": "illegal_sequence",
+      "original_len": 53,
+      "minimized_len": 49,
+      "original_file": "cases/m0008.orig.bin",
+      "minimized_file": "cases/m0008.min.bin",
+      "minimized_hex": "ab030001040000000001040000000002080000000000000000031603140302030000bd0000000000000000000000000000",
+      "output_a": {
+        "ok": false,
+        "value": null,
+        "error": "Truncated"
+      },
+      "output_b": {
+        "ok": false,
+        "value": null,
+        "error": "DepthExceeded"
+      }
+    }
+  ]
+}
