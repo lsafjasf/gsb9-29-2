@@ -1,0 +1,41 @@
+From: =?utf-8?b?5L2g5aW977yM5LiW55WM?= <alice@example.com>
+To: bob@example.com
+Subject: =?utf-8?b?5aSa6YOo5Lu25bWM5aWX6YKu5Lu2?= =?utf-8?b?5oql5ZGK?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="mix-boundary"
+
+--mix-boundary
+Content-Type: multipart/alternative; boundary="alt-boundary"
+
+--alt-boundary
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+=E4=BD=A0=E5=A5=BD=EF=BC=8C=E8=BF=99=E6=98=AF=E7=BA=AF=E6=96=87=E6=9C=AC=E6=
+=AD=A3=E6=96=87=E3=80=82
+=E7=AC=AC=E4=BA=8C=E8=A1=8C=E3=80=82
+--alt-boundary
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: base64
+
+PGh0bWw+PGJvZHk+PHA+5L2g5aW977yMSFRNTCDmraPmloc8L3A+PC9ib2R5PjwvaHRtbD4=
+--alt-boundary--
+--mix-boundary
+Content-Type: application/pdf;
+ name*=utf-8''%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A.pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename*=utf-8''%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A.pdf
+
+JVBERi0xLjQgZmFrZSBwZGYgcGF5bG9hZAolUERGLTEuNCBmYWtlIHBkZiBwYXlsb2FkCiVQREYt
+MS40IGZha2UgcGRmIHBheWxvYWQKJVBERi0xLjQgZmFrZSBwZGYgcGF5bG9hZAo=
+--mix-boundary
+Content-Type: message/rfc822
+
+From: =?utf-8?b?5YaF6YOo5Y+R5Lu25Lq6?= <inner@example.com>
+To: outer@example.com
+Subject: =?utf-8?q?=E5=86=85=E5=B5=8C=E9=82=AE=E4=BB=B6?=
+Content-Type: text/plain; charset=utf-8
+
+这是被转发的内嵌邮件正文。
+--mix-boundary--

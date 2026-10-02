@@ -1,0 +1,18 @@
+Subject: boundary in body
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="frontier42"
+
+--frontier42
+Content-Type: text/plain; charset=utf-8
+
+正文开始。
+--frontier42x
+-- frontier42
+ --frontier42
+--frontier43--
+正文结束。
+--frontier42
+Content-Type: text/plain; charset=utf-8
+
+第二个部分。
+--frontier42--

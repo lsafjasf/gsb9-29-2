@@ -1,0 +1,19 @@
+From: =?gb2312?b?1cXI/Q==?= <zhangsan@example.com>
+To: =?utf-8?q?=E6=9D=8E=E5=9B=9B?= <lisi@example.com>
+Subject: =?utf-8?b?5rWL6K+V5aS06YOo?= =?gb2312?q?=B2=E2=CA=D4?=
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="enc-boundary"
+
+--enc-boundary
+Content-Type: text/plain; charset=gbk
+Content-Transfer-Encoding: 8bit
+
+中文正文，GBK 编码。
+--enc-boundary
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="=?utf-8?b?6ZmE5Lu25pWw5o2uLnR4dA==?="
+
+YXR0YWNobWVudC1ieXRlcy0xMjM=
+--enc-boundary--

@@ -1,0 +1,5 @@
+Subject: unknown charset
+Content-Type: text/plain; charset=x-no-such-charset
+Content-Transfer-Encoding: 8bit
+
+未知字符集，实为 UTF-8。

@@ -1,0 +1,5 @@
+Subject: latin1 fallback
+Content-Type: text/plain; charset=x-bogus
+Content-Transfer-Encoding: 8bit
+
+café naïve €
