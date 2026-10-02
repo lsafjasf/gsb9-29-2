@@ -1,0 +1,66 @@
+{
+  "root_ca": {
+    "expect": "ok",
+    "note": "自签名根 CA，pathLen=1"
+  },
+  "intermediate_ca": {
+    "expect": "ok",
+    "note": "根签发的中间 CA，pathLen=0"
+  },
+  "leaf_server": {
+    "expect": "ok",
+    "note": "服务器证书，EKU=serverAuth"
+  },
+  "leaf_client": {
+    "expect": "ok",
+    "note": "客户端证书，EKU=clientAuth"
+  },
+  "leaf_expired": {
+    "expect": "EXPIRED",
+    "note": "notAfter 已在过去"
+  },
+  "leaf_not_yet_valid": {
+    "expect": "NOT_YET_VALID",
+    "note": "notBefore 在将来"
+  },
+  "leaf_client_as_server": {
+    "expect": "USAGE_MISMATCH",
+    "note": "EKU=clientAuth 却要求 serverAuth"
+  },
+  "rogue_root": {
+    "expect": "ok",
+    "note": "与 leaf_server 组合时产生 ISSUER_MISMATCH"
+  },
+  "leaf_bad_signature": {
+    "expect": "SIGNATURE_INVALID",
+    "note": "签名值被翻转 1 bit"
+  },
+  "leaf_issued_by_leaf": {
+    "expect": "NOT_A_CA",
+    "note": "由 cA=FALSE 的末端证书签发"
+  },
+  "malformed_truncated": {
+    "expect": "TRUNCATED",
+    "note": "文件尾部被截断"
+  },
+  "malformed_indefinite_length": {
+    "expect": "INDEFINITE_LENGTH",
+    "note": "顶层长度改为不定长 0x80"
+  },
+  "malformed_nonminimal_integer": {
+    "expect": "NON_MINIMAL_INTEGER",
+    "note": "serialNumber 带冗余前导 0x00"
+  },
+  "malformed_huge_length": {
+    "expect": "FIELD_TOO_LONG|TRUNCATED",
+    "note": "顶层声明 4GiB 长度"
+  },
+  "malformed_trailing": {
+    "expect": "TRAILING_DATA",
+    "note": "证书后附加垃圾字节"
+  },
+  "malformed_missing_fields": {
+    "expect": "MISSING_FIELD",
+    "note": "TBSCertificate 缺少 validity/subject/spki"
+  }
+}
