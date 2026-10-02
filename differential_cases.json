@@ -1,0 +1,30 @@
+[
+  {
+    "name": "get_basic_mixed_case",
+    "raw": "GET /a%20b?q=1 HTTP/1.1\r\nHOST: Example.COM\r\nUser-Agent: Test/1.0\r\nAccept: text/plain\r\n\r\n"
+  },
+  {
+    "name": "post_duplicate_and_empty",
+    "raw": "POST /submit HTTP/1.0\r\nContent-Length: 3\r\nContent-Length: 3\r\nX-Forwarded-For: 192.0.2.1\r\nX-Forwarded-For: 198.51.100.2\r\nX-Empty:\r\n\r\n"
+  },
+  {
+    "name": "obs_fold",
+    "raw": "GET /fold HTTP/1.1\r\nX-Multi: one\r\n\ttwo\r\nX-List:  three  \r\n\r\n"
+  },
+  {
+    "name": "no_headers",
+    "raw": "GET / HTTP/1.1\r\n\r\n"
+  },
+  {
+    "name": "options_star",
+    "raw": "OPTIONS * HTTP/1.1\r\nHost: server.example\r\nMax-Forwards: 0\r\n\r\n"
+  },
+  {
+    "name": "head_custom_headers",
+    "raw": "HEAD /check HTTP/1.1\r\nx-custom: Value A\r\nX-CUSTOM: Value B\r\nconnection: keep-alive\r\n\r\n"
+  },
+  {
+    "name": "duplicate_then_continuation",
+    "raw": "POST /order HTTP/1.1\r\nX-List: one\r\nX-List: two\r\n\tcont\r\n\t  extra  \r\nContent-Type: application/json\r\n\r\n"
+  }
+]
