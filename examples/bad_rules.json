@@ -1,0 +1,45 @@
+{
+  "comment": "Planted defective rules. Every rule here must be caught (recall control set).",
+  "rules": [
+    {"id": "B-001", "name": "cpu above physical max",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 120, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-002", "name": "memory tautology",
+     "conditions": [{"metric": "memory_usage_percent", "op": "ge", "threshold": 0, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-003", "name": "cpu strictly above max (boundary)",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 100, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-004", "name": "disk at most max (boundary tautology)",
+     "conditions": [{"metric": "disk_usage_percent", "op": "le", "threshold": 100, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-005", "name": "node_up equals impossible value",
+     "conditions": [{"metric": "node_up", "op": "eq", "threshold": 5, "agg": "last", "window_seconds": 60}]},
+    {"id": "B-006", "name": "latency contradiction", "combinator": "all",
+     "conditions": [
+       {"metric": "request_latency_ms", "op": "gt", "threshold": 5000, "agg": "avg", "window_seconds": 300},
+       {"metric": "request_latency_ms", "op": "lt", "threshold": 1000, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-007", "name": "queue any-state tautology", "combinator": "any",
+     "conditions": [
+       {"metric": "queue_depth", "op": "gt", "threshold": 50000, "agg": "max", "window_seconds": 300},
+       {"metric": "queue_depth", "op": "le", "threshold": 50000, "agg": "max", "window_seconds": 300}]},
+    {"id": "B-008", "name": "cpu outside range both ways", "combinator": "any",
+     "conditions": [
+       {"metric": "cpu_usage_percent", "op": "gt", "threshold": 200, "agg": "avg", "window_seconds": 300},
+       {"metric": "cpu_usage_percent", "op": "lt", "threshold": -5, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-009", "name": "error ratio alert A",
+     "conditions": [{"metric": "http_error_ratio", "op": "gt", "threshold": 0.05, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-010", "name": "error ratio alert B (exact copy)",
+     "conditions": [{"metric": "http_error_ratio", "op": "gt", "threshold": 0.05, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-011", "name": "cpu > 90",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 90, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-012", "name": "cpu > 92 (near duplicate)",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 92, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-013", "name": "cpu > 90 alone", "combinator": "all",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 90, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-014", "name": "cpu > 90 and mem > 90 (contains B-013)", "combinator": "all",
+     "conditions": [
+       {"metric": "cpu_usage_percent", "op": "gt", "threshold": 90, "agg": "avg", "window_seconds": 300},
+       {"metric": "memory_usage_percent", "op": "gt", "threshold": 90, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-015", "name": "metric does not exist",
+     "conditions": [{"metric": "no_such_metric", "op": "gt", "threshold": 1, "agg": "avg", "window_seconds": 300}]},
+    {"id": "B-016", "name": "hourly sum above physical max",
+     "conditions": [{"metric": "requests_per_second", "op": "gt", "threshold": 3500000, "agg": "sum", "window_seconds": 3600}]}
+  ]
+}

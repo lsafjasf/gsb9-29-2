@@ -1,0 +1,62 @@
+{
+  "rules": [
+    {"id": "R-001", "name": "CPU high", "severity": "warning",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 90, "agg": "avg", "window_seconds": 300}]},
+
+    {"id": "R-002", "name": "CPU impossible", "severity": "critical",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 150, "agg": "avg", "window_seconds": 300}]},
+
+    {"id": "R-003", "name": "memory tautology", "severity": "warning",
+     "conditions": [{"metric": "memory_usage_percent", "op": "ge", "threshold": 0, "agg": "avg", "window_seconds": 600}]},
+
+    {"id": "R-004", "name": "node down", "severity": "critical",
+     "conditions": [{"metric": "node_up", "op": "lt", "threshold": 1, "agg": "min", "window_seconds": 120}]},
+
+    {"id": "R-005", "name": "error ratio high", "severity": "warning",
+     "conditions": [{"metric": "http_error_ratio", "op": "gt", "threshold": 0.05, "agg": "avg", "window_seconds": 300}]},
+
+    {"id": "R-006", "name": "error ratio high (copy)", "severity": "warning",
+     "conditions": [{"metric": "http_error_ratio", "op": "gt", "threshold": 0.05, "agg": "avg", "window_seconds": 300}]},
+
+    {"id": "R-007", "name": "error ratio slightly higher", "severity": "warning",
+     "conditions": [{"metric": "http_error_ratio", "op": "gt", "threshold": 0.055, "agg": "avg", "window_seconds": 300}]},
+
+    {"id": "R-008", "name": "latency p99 slow", "severity": "warning",
+     "conditions": [{"metric": "request_latency_ms", "op": "gt", "threshold": 2000, "agg": "p99", "window_seconds": 600}]},
+
+    {"id": "R-009", "name": "cpu+mem saturated", "severity": "critical", "combinator": "all",
+     "conditions": [
+       {"metric": "cpu_usage_percent", "op": "gt", "threshold": 95, "agg": "avg", "window_seconds": 300},
+       {"metric": "memory_usage_percent", "op": "gt", "threshold": 95, "agg": "avg", "window_seconds": 300}]},
+
+    {"id": "R-010", "name": "cpu contradiction", "severity": "critical", "combinator": "all",
+     "conditions": [
+       {"metric": "cpu_usage_percent", "op": "gt", "threshold": 80, "agg": "avg", "window_seconds": 300},
+       {"metric": "cpu_usage_percent", "op": "lt", "threshold": 20, "agg": "avg", "window_seconds": 300}]},
+
+    {"id": "R-011", "name": "disk any-state", "severity": "warning", "combinator": "any",
+     "conditions": [
+       {"metric": "disk_usage_percent", "op": "gt", "threshold": 60, "agg": "avg", "window_seconds": 600},
+       {"metric": "disk_usage_percent", "op": "le", "threshold": 60, "agg": "avg", "window_seconds": 600}]},
+
+    {"id": "R-012", "name": "phantom queue", "severity": "warning",
+     "conditions": [{"metric": "phantom_queue_lag", "op": "gt", "threshold": 1000, "agg": "max", "window_seconds": 300}]},
+
+    {"id": "R-013", "name": "daily traffic total", "severity": "warning",
+     "conditions": [{"metric": "requests_per_second", "op": "gt", "threshold": 50000000, "agg": "sum", "window_seconds": 86400}]},
+
+    {"id": "R-014", "name": "daily traffic impossible", "severity": "warning",
+     "conditions": [{"metric": "requests_per_second", "op": "gt", "threshold": 80000000, "agg": "sum", "window_seconds": 86400}]},
+
+    {"id": "R-015", "name": "cpu boundary always", "severity": "info",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "ge", "threshold": 0, "agg": "max", "window_seconds": 3600}]},
+
+    {"id": "R-016", "name": "queue depth high", "severity": "warning",
+     "conditions": [{"metric": "queue_depth", "op": "gt", "threshold": 80000, "agg": "max", "window_seconds": 900}]},
+
+    {"id": "R-017", "name": "cpu high (tighter copy)", "severity": "critical", "combinator": "all",
+     "conditions": [
+       {"metric": "cpu_usage_percent", "op": "gt", "threshold": 90, "agg": "avg", "window_seconds": 300},
+       {"metric": "memory_usage_percent", "op": "gt", "threshold": 90, "agg": "avg", "window_seconds": 300}]}
+  ]
+}

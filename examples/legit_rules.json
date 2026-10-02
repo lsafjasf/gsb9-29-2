@@ -1,0 +1,37 @@
+{
+  "comment": "Legitimate rules. The checker must produce ZERO NEVER_FIRES / ALWAYS_FIRES / DUPLICATE_* findings on this corpus (false-positive control set).",
+  "rules": [
+    {"id": "L-001", "name": "cpu high warning", "severity": "warning",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 90, "agg": "avg", "window_seconds": 300}]},
+    {"id": "L-002", "name": "cpu high critical (tiered)", "severity": "critical",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 97, "agg": "avg", "window_seconds": 300}]},
+    {"id": "L-003", "name": "any errors at all (very low threshold)", "severity": "warning",
+     "conditions": [{"metric": "http_error_ratio", "op": "gt", "threshold": 0.001, "agg": "avg", "window_seconds": 600}]},
+    {"id": "L-004", "name": "sustained cpu over a day (long window)", "severity": "warning",
+     "conditions": [{"metric": "cpu_usage_percent", "op": "gt", "threshold": 60, "agg": "avg", "window_seconds": 86400}]},
+    {"id": "L-005", "name": "sustained memory over a day (long window)", "severity": "warning",
+     "conditions": [{"metric": "memory_usage_percent", "op": "gt", "threshold": 85, "agg": "avg", "window_seconds": 86400}]},
+    {"id": "L-006", "name": "node down", "severity": "critical",
+     "conditions": [{"metric": "node_up", "op": "lt", "threshold": 1, "agg": "min", "window_seconds": 120}]},
+    {"id": "L-007", "name": "daily request volume (sum over long window)", "severity": "warning",
+     "conditions": [{"metric": "requests_per_second", "op": "gt", "threshold": 50000000, "agg": "sum", "window_seconds": 86400}]},
+    {"id": "L-008", "name": "p99 latency", "severity": "warning",
+     "conditions": [{"metric": "request_latency_ms", "op": "gt", "threshold": 2000, "agg": "p99", "window_seconds": 600}]},
+    {"id": "L-009", "name": "queue backlog", "severity": "warning",
+     "conditions": [{"metric": "queue_depth", "op": "gt", "threshold": 80000, "agg": "max", "window_seconds": 900}]},
+    {"id": "L-010", "name": "extreme cold (near range minimum)", "severity": "warning",
+     "conditions": [{"metric": "temperature_celsius", "op": "lt", "threshold": -30, "agg": "avg", "window_seconds": 600}]},
+    {"id": "L-011", "name": "disk filling warning", "severity": "warning",
+     "conditions": [{"metric": "disk_usage_percent", "op": "gt", "threshold": 85, "agg": "avg", "window_seconds": 600}]},
+    {"id": "L-012", "name": "disk filling critical (tiered)", "severity": "critical",
+     "conditions": [{"metric": "disk_usage_percent", "op": "gt", "threshold": 93, "agg": "avg", "window_seconds": 600}]},
+    {"id": "L-013", "name": "cpu and memory saturated", "severity": "critical", "combinator": "all",
+     "conditions": [
+       {"metric": "cpu_usage_percent", "op": "gt", "threshold": 95, "agg": "avg", "window_seconds": 300},
+       {"metric": "memory_usage_percent", "op": "gt", "threshold": 95, "agg": "avg", "window_seconds": 300}]},
+    {"id": "L-014", "name": "errors or node down", "severity": "critical", "combinator": "any",
+     "conditions": [
+       {"metric": "http_error_ratio", "op": "gt", "threshold": 0.5, "agg": "avg", "window_seconds": 300},
+       {"metric": "node_up", "op": "lt", "threshold": 1, "agg": "min", "window_seconds": 120}]}
+  ]
+}

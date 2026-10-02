@@ -1,0 +1,304 @@
+{
+  "stats": {
+    "rules_checked": 17,
+    "issues_total": 11,
+    "by_type": {
+      "NEVER_FIRES": 3,
+      "ALWAYS_FIRES": 3,
+      "MISSING_METRIC": 1,
+      "DUPLICATE_CONTAINED": 1,
+      "DUPLICATE_EQUIVALENT": 1,
+      "DUPLICATE_OVERLAP": 2
+    },
+    "never_fires": 3,
+    "always_fires": 3,
+    "duplicates": 4
+  },
+  "verdicts": {
+    "R-001": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. avg(cpu_usage_percent) in (90, 100]"
+      ]
+    },
+    "R-002": {
+      "status": "never",
+      "reasons": [
+        "trigger condition is disjoint from feasible range [0, 100] of avg(cpu_usage_percent, 300s)"
+      ]
+    },
+    "R-003": {
+      "status": "always",
+      "reasons": [
+        "every condition covers its whole feasible range; the AND of them always holds"
+      ]
+    },
+    "R-004": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. min(node_up) in [0, 1)"
+      ]
+    },
+    "R-005": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. avg(http_error_ratio) in (0.05, 1]"
+      ]
+    },
+    "R-006": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. avg(http_error_ratio) in (0.05, 1]"
+      ]
+    },
+    "R-007": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. avg(http_error_ratio) in (0.055, 1]"
+      ]
+    },
+    "R-008": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. p99(request_latency_ms) in (2000, 30000]"
+      ]
+    },
+    "R-009": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. avg(cpu_usage_percent) in (95, 100]"
+      ]
+    },
+    "R-010": {
+      "status": "never",
+      "reasons": [
+        "AND-contradiction on avg(cpu_usage_percent, 300s): combined conditions are disjoint from feasible range [0, 100]"
+      ]
+    },
+    "R-011": {
+      "status": "always",
+      "reasons": [
+        "OR-branches on avg(disk_usage_percent, 600s) jointly cover the whole feasible range [0, 100]"
+      ]
+    },
+    "R-012": {
+      "status": "unknown",
+      "reasons": [
+        "unknown metric(s) phantom_queue_lag; remaining conditions are satisfiable"
+      ]
+    },
+    "R-013": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. sum(requests_per_second) in (5e+07, 7.2e+07]"
+      ]
+    },
+    "R-014": {
+      "status": "never",
+      "reasons": [
+        "trigger condition is disjoint from feasible range [0, 7.2e+07] of sum(requests_per_second, 86400s)"
+      ]
+    },
+    "R-015": {
+      "status": "always",
+      "reasons": [
+        "every condition covers its whole feasible range; the AND of them always holds"
+      ]
+    },
+    "R-016": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. max(queue_depth) in (80000, 100000]"
+      ]
+    },
+    "R-017": {
+      "status": "ok",
+      "reasons": [
+        "fires when all conditions hold; e.g. avg(cpu_usage_percent) in (90, 100]"
+      ]
+    }
+  },
+  "issues": [
+    {
+      "type": "NEVER_FIRES",
+      "severity": "error",
+      "rule_ids": [
+        "R-002"
+      ],
+      "message": "rule can never fire",
+      "evidence": {
+        "reasons": [
+          "trigger condition is disjoint from feasible range [0, 100] of avg(cpu_usage_percent, 300s)"
+        ],
+        "conditions": [
+          "avg(cpu_usage_percent, 300s) gt 150"
+        ]
+      }
+    },
+    {
+      "type": "ALWAYS_FIRES",
+      "severity": "error",
+      "rule_ids": [
+        "R-003"
+      ],
+      "message": "rule always fires",
+      "evidence": {
+        "reasons": [
+          "every condition covers its whole feasible range; the AND of them always holds"
+        ],
+        "conditions": [
+          "avg(memory_usage_percent, 600s) ge 0"
+        ]
+      }
+    },
+    {
+      "type": "NEVER_FIRES",
+      "severity": "error",
+      "rule_ids": [
+        "R-010"
+      ],
+      "message": "rule can never fire",
+      "evidence": {
+        "reasons": [
+          "AND-contradiction on avg(cpu_usage_percent, 300s): combined conditions are disjoint from feasible range [0, 100]"
+        ],
+        "conditions": [
+          "avg(cpu_usage_percent, 300s) gt 80",
+          "avg(cpu_usage_percent, 300s) lt 20"
+        ]
+      }
+    },
+    {
+      "type": "ALWAYS_FIRES",
+      "severity": "error",
+      "rule_ids": [
+        "R-011"
+      ],
+      "message": "rule always fires",
+      "evidence": {
+        "reasons": [
+          "OR-branches on avg(disk_usage_percent, 600s) jointly cover the whole feasible range [0, 100]"
+        ],
+        "conditions": [
+          "avg(disk_usage_percent, 600s) gt 60",
+          "avg(disk_usage_percent, 600s) le 60"
+        ]
+      }
+    },
+    {
+      "type": "MISSING_METRIC",
+      "severity": "warning",
+      "rule_ids": [
+        "R-012"
+      ],
+      "message": "condition references unknown metric 'phantom_queue_lag'",
+      "evidence": {
+        "metric": "phantom_queue_lag",
+        "known_metrics": [
+          "cpu_usage_percent",
+          "disk_usage_percent",
+          "http_error_ratio",
+          "memory_usage_percent",
+          "node_up",
+          "queue_depth",
+          "request_latency_ms",
+          "requests_per_second",
+          "temperature_celsius"
+        ]
+      }
+    },
+    {
+      "type": "NEVER_FIRES",
+      "severity": "error",
+      "rule_ids": [
+        "R-014"
+      ],
+      "message": "rule can never fire",
+      "evidence": {
+        "reasons": [
+          "trigger condition is disjoint from feasible range [0, 7.2e+07] of sum(requests_per_second, 86400s)"
+        ],
+        "conditions": [
+          "sum(requests_per_second, 86400s) gt 8e+07"
+        ]
+      }
+    },
+    {
+      "type": "ALWAYS_FIRES",
+      "severity": "error",
+      "rule_ids": [
+        "R-015"
+      ],
+      "message": "rule always fires",
+      "evidence": {
+        "reasons": [
+          "every condition covers its whole feasible range; the AND of them always holds"
+        ],
+        "conditions": [
+          "max(cpu_usage_percent, 3600s) ge 0"
+        ]
+      }
+    },
+    {
+      "type": "DUPLICATE_CONTAINED",
+      "severity": "info",
+      "rule_ids": [
+        "R-001",
+        "R-017"
+      ],
+      "message": "R-001 / R-017: one rule always fires with the other",
+      "evidence": {
+        "similarity": 0.5,
+        "containment": 1.0,
+        "kind": "contained",
+        "basis": "conditions of R-001 are a strict subset of R-017; whenever R-017 fires, R-001 fires too (condition-set Jaccard 1/2)"
+      }
+    },
+    {
+      "type": "DUPLICATE_EQUIVALENT",
+      "severity": "warning",
+      "rule_ids": [
+        "R-005",
+        "R-006"
+      ],
+      "message": "R-005 and R-006 are equivalent rules",
+      "evidence": {
+        "similarity": 1.0,
+        "containment": 1.0,
+        "kind": "equivalent",
+        "basis": "identical canonical condition sets"
+      }
+    },
+    {
+      "type": "DUPLICATE_OVERLAP",
+      "severity": "warning",
+      "rule_ids": [
+        "R-005",
+        "R-007"
+      ],
+      "message": "R-005 and R-007 have highly overlapping trigger regions",
+      "evidence": {
+        "similarity": 0.9947,
+        "containment": 1.0,
+        "kind": "overlap",
+        "basis": "avg(http_error_ratio, 300s): (0.05, 1] vs (0.055, 1] Jaccard=0.99"
+      }
+    },
+    {
+      "type": "DUPLICATE_OVERLAP",
+      "severity": "warning",
+      "rule_ids": [
+        "R-006",
+        "R-007"
+      ],
+      "message": "R-006 and R-007 have highly overlapping trigger regions",
+      "evidence": {
+        "similarity": 0.9947,
+        "containment": 1.0,
+        "kind": "overlap",
+        "basis": "avg(http_error_ratio, 300s): (0.05, 1] vs (0.055, 1] Jaccard=0.99"
+      }
+    }
+  ],
+  "load_errors": []
+}

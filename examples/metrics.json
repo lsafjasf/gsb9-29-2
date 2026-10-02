@@ -1,0 +1,13 @@
+{
+  "metrics": [
+    {"name": "cpu_usage_percent", "min": 0, "max": 100, "unit": "%", "sample_interval_seconds": 15},
+    {"name": "memory_usage_percent", "min": 0, "max": 100, "unit": "%", "sample_interval_seconds": 15},
+    {"name": "disk_usage_percent", "min": 0, "max": 100, "unit": "%", "sample_interval_seconds": 60},
+    {"name": "http_error_ratio", "min": 0, "max": 1, "unit": "ratio", "sample_interval_seconds": 30},
+    {"name": "request_latency_ms", "min": 0, "max": 30000, "unit": "ms", "sample_interval_seconds": 10},
+    {"name": "requests_per_second", "min": 0, "max": 50000, "unit": "rps", "sample_interval_seconds": 60},
+    {"name": "node_up", "min": 0, "max": 1, "unit": "bool", "sample_interval_seconds": 30},
+    {"name": "queue_depth", "min": 0, "max": 100000, "unit": "msgs"},
+    {"name": "temperature_celsius", "min": -40, "max": 85, "unit": "C", "sample_interval_seconds": 60}
+  ]
+}
