@@ -1,0 +1,23 @@
+========================================================================
+NUMERICAL ERROR REGRESSION REPORT
+generated: 2026-10-02T17:50:12+00:00
+baseline:  baselines/baseline.json
+cases: 3  PASS: 3  WARN: 0  FAIL: 0
+========================================================================
+[PASS] jacobi_solver (deterministic)
+  error      ok    base 1.182e-13 (n=3)  cur 1.182e-13  limit 1.242e-13  margin -5.912e-15
+  iterations ok    base mean 16.0 max 16  cur 16  limit 18
+  timing     ok    base 0.046ms +/- 0.008  cur 0.060ms  warn-limit 0.093ms
+
+[PASS] montecarlo_pi (randomized)
+  error      ok    base 1.015e-03 +/- 7.984e-04 (n=30)  cur 1.464e-03 (n=8) z=+1.41  limit 1.891e-03  margin -4.268e-04
+  iterations ok    base mean 20000.0 max 20000  cur 20000  limit 22000
+  timing     ok    base 0.834ms +/- 0.049  cur 0.888ms  warn-limit 1.668ms
+
+[PASS] sqrt2_newton (deterministic)
+  error      ok    base 8.865e-17 (n=3)  cur 8.865e-17  limit 9.308e-17  margin -4.433e-18
+  iterations ok    base mean 6.0 max 6  cur 6  limit 7
+  timing     ok    base 0.003ms +/- 0.003  cur 0.002ms  warn-limit 0.013ms
+
+------------------------------------------------------------------------
+overall: PASS

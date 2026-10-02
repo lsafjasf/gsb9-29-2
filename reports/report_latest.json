@@ -1,0 +1,264 @@
+{
+  "meta": {
+    "generated_utc": "2026-10-02T17:50:12+00:00",
+    "baseline": "baselines/baseline.json",
+    "simulated_degradation": false
+  },
+  "overall": "PASS",
+  "counts": {
+    "PASS": 3,
+    "WARN": 0,
+    "FAIL": 0
+  },
+  "cases": [
+    {
+      "name": "jacobi_solver",
+      "kind": "deterministic",
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "error",
+          "ok": true,
+          "severity": "fail",
+          "summary": "base 1.182e-13 (n=3)  cur 1.182e-13  limit 1.242e-13  margin -5.912e-15",
+          "data": {
+            "mode": "deterministic",
+            "baseline": {
+              "n": 3,
+              "mean": 1.1823875212257917e-13,
+              "stdev": 0.0,
+              "min": 1.1823875212257917e-13,
+              "max": 1.1823875212257917e-13
+            },
+            "current": {
+              "n": 1,
+              "mean": 1.1823875212257917e-13,
+              "stdev": 0.0,
+              "min": 1.1823875212257917e-13,
+              "max": 1.1823875212257917e-13
+            },
+            "observed": 1.1823875212257917e-13,
+            "limit": 1.2415068972870813e-13,
+            "exceedance": -5.9119376061289586e-15,
+            "z_score": null,
+            "verdict": "ok"
+          }
+        },
+        {
+          "name": "iterations",
+          "ok": true,
+          "severity": "fail",
+          "summary": "base mean 16.0 max 16  cur 16  limit 18",
+          "data": {
+            "baseline": {
+              "n": 3,
+              "mean": 16.0,
+              "stdev": 0.0,
+              "min": 16,
+              "max": 16
+            },
+            "current": {
+              "n": 1,
+              "mean": 16.0,
+              "stdev": 0.0,
+              "min": 16,
+              "max": 16
+            },
+            "observed": 16,
+            "limit": 18
+          }
+        },
+        {
+          "name": "timing",
+          "ok": true,
+          "severity": "warn",
+          "summary": "base 0.046ms +/- 0.008  cur 0.060ms  warn-limit 0.093ms",
+          "data": {
+            "baseline": {
+              "n": 3,
+              "mean": 0.04647466509292523,
+              "stdev": 0.007791613809504155,
+              "min": 0.03851099609164521,
+              "max": 0.05408199649536982
+            },
+            "current": {
+              "n": 1,
+              "mean": 0.060091995692346245,
+              "stdev": 0.0,
+              "min": 0.060091995692346245,
+              "max": 0.060091995692346245
+            },
+            "observed": 0.060091995692346245,
+            "limit": 0.09294933018585046
+          }
+        }
+      ]
+    },
+    {
+      "name": "montecarlo_pi",
+      "kind": "randomized",
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "error",
+          "ok": true,
+          "severity": "fail",
+          "summary": "base 1.015e-03 +/- 7.984e-04 (n=30)  cur 1.464e-03 (n=8) z=+1.41  limit 1.891e-03  margin -4.268e-04",
+          "data": {
+            "mode": "statistical",
+            "baseline": {
+              "n": 30,
+              "mean": 0.0010151110254227331,
+              "stdev": 0.0007983887884707234,
+              "min": 3.442715124299669e-05,
+              "max": 0.002488194237494753
+            },
+            "current": {
+              "n": 8,
+              "mean": 0.001463865841856497,
+              "stdev": 0.0011314356074392938,
+              "min": 0.00023654747057139515,
+              "max": 0.0035256942684648027
+            },
+            "observed": 0.001463865841856497,
+            "limit": 0.0018906587432413898,
+            "exceedance": -0.0004267929013848928,
+            "z_score": 1.4125652422151735,
+            "verdict": "ok"
+          }
+        },
+        {
+          "name": "iterations",
+          "ok": true,
+          "severity": "fail",
+          "summary": "base mean 20000.0 max 20000  cur 20000  limit 22000",
+          "data": {
+            "baseline": {
+              "n": 30,
+              "mean": 20000.0,
+              "stdev": 0.0,
+              "min": 20000,
+              "max": 20000
+            },
+            "current": {
+              "n": 8,
+              "mean": 20000.0,
+              "stdev": 0.0,
+              "min": 20000,
+              "max": 20000
+            },
+            "observed": 20000,
+            "limit": 22000
+          }
+        },
+        {
+          "name": "timing",
+          "ok": true,
+          "severity": "warn",
+          "summary": "base 0.834ms +/- 0.049  cur 0.888ms  warn-limit 1.668ms",
+          "data": {
+            "baseline": {
+              "n": 30,
+              "mean": 0.8339313004398718,
+              "stdev": 0.04889784013416391,
+              "min": 0.7939339993754402,
+              "max": 1.0561220042291097
+            },
+            "current": {
+              "n": 8,
+              "mean": 0.8878413764250581,
+              "stdev": 0.07999718173087428,
+              "min": 0.8060039981501177,
+              "max": 1.0239610055577941
+            },
+            "observed": 0.8878413764250581,
+            "limit": 1.6678626008797437
+          }
+        }
+      ]
+    },
+    {
+      "name": "sqrt2_newton",
+      "kind": "deterministic",
+      "status": "PASS",
+      "checks": [
+        {
+          "name": "error",
+          "ok": true,
+          "severity": "fail",
+          "summary": "base 8.865e-17 (n=3)  cur 8.865e-17  limit 9.308e-17  margin -4.433e-18",
+          "data": {
+            "mode": "deterministic",
+            "baseline": {
+              "n": 3,
+              "mean": 8.865115929175827e-17,
+              "stdev": 0.0,
+              "min": 8.865115929175827e-17,
+              "max": 8.865115929175827e-17
+            },
+            "current": {
+              "n": 1,
+              "mean": 8.865115929175827e-17,
+              "stdev": 0.0,
+              "min": 8.865115929175827e-17,
+              "max": 8.865115929175827e-17
+            },
+            "observed": 8.865115929175827e-17,
+            "limit": 9.308371725634618e-17,
+            "exceedance": -4.432557964587909e-18,
+            "z_score": null,
+            "verdict": "ok"
+          }
+        },
+        {
+          "name": "iterations",
+          "ok": true,
+          "severity": "fail",
+          "summary": "base mean 6.0 max 6  cur 6  limit 7",
+          "data": {
+            "baseline": {
+              "n": 3,
+              "mean": 6.0,
+              "stdev": 0.0,
+              "min": 6,
+              "max": 6
+            },
+            "current": {
+              "n": 1,
+              "mean": 6.0,
+              "stdev": 0.0,
+              "min": 6,
+              "max": 6
+            },
+            "observed": 6,
+            "limit": 7
+          }
+        },
+        {
+          "name": "timing",
+          "ok": true,
+          "severity": "warn",
+          "summary": "base 0.003ms +/- 0.003  cur 0.002ms  warn-limit 0.013ms",
+          "data": {
+            "baseline": {
+              "n": 3,
+              "mean": 0.0029799994081258774,
+              "stdev": 0.0031857660645332087,
+              "min": 0.0004899993655271828,
+              "max": 0.006570000550709665
+            },
+            "current": {
+              "n": 1,
+              "mean": 0.0024999972083605826,
+              "stdev": 0.0,
+              "min": 0.0024999972083605826,
+              "max": 0.0024999972083605826
+            },
+            "observed": 0.0024999972083605826,
+            "limit": 0.012537297601725504
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "generated_utc": "2026-10-02T18:07:05+00:00",
+  "interval": "one-sided 99.5% Student-t prediction bound",
+  "results": [
+    {
+      "case": "jacobi_solver",
+      "deterministic": {
+        "method": "deterministic_repeat",
+        "trials": 50,
+        "alarms": 0,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      }
+    },
+    {
+      "case": "montecarlo_pi",
+      "model_based": {
+        "method": "model_based_normal",
+        "trials": 20000,
+        "alarms": 117,
+        "rate": 0.00585,
+        "theoretical_one_sided_level": 0.005
+      },
+      "empirical": {
+        "method": "empirical_real_algorithm",
+        "trials": 300,
+        "alarms": 2,
+        "rate": 0.006666666666666667,
+        "wilson95": [
+          0.0018301100329710784,
+          0.023978074231461442
+        ]
+      }
+    },
+    {
+      "case": "sqrt2_newton",
+      "deterministic": {
+        "method": "deterministic_repeat",
+        "trials": 50,
+        "alarms": 0,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.07135003417431873
+        ]
+      }
+    }
+  ]
+}

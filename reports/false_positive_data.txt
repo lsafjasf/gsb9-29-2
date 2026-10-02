@@ -1,0 +1,10 @@
+False-positive measurement (healthy code vs stored baseline)
+================================================================
+case: jacobi_solver
+  deterministic_repeat         alarms=    0/50     rate=0.0000%  wilson95=[0.0000, 0.0714]
+case: montecarlo_pi
+  model_based_normal           alarms=  117/20000  rate=0.5850%
+  empirical_real_algorithm     alarms=    2/300    rate=0.6667%  wilson95=[0.0018, 0.0240]
+case: sqrt2_newton
+  deterministic_repeat         alarms=    0/50     rate=0.0000%  wilson95=[0.0000, 0.0714]
+================================================================
