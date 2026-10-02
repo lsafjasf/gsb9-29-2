@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "name": "pi_monte_carlo",
+  "kind": "randomized",
+  "reference": {
+    "value": "3.141592653589793238462643383279502884197169399375105820974944592307812",
+    "sha256": "913d6a65027c3eadaffaeed99c5fe3624f83a177dacf3ac58b11bba1505d1e07"
+  },
+  "abs_error": {
+    "mean": 0.00402395949967068,
+    "std": 0.002844625973418422,
+    "n": 30,
+    "min": 0.00027361427187099185,
+    "max": 0.011291426004179749
+  },
+  "rel_error": {
+    "mean": 0.0012808660903483573,
+    "std": 0.0009054725698342728,
+    "n": 30,
+    "min": 8.709412773751618e-05,
+    "max": 0.0035941725262431503
+  },
+  "iterations": {
+    "mean": 20000.0,
+    "std": 0.0,
+    "n": 30,
+    "min": 20000,
+    "max": 20000
+  },
+  "elapsed_median": 0.0009387919963046443,
+  "created": "2026-10-02T20:57:44+00:00",
+  "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "meta": {
+    "algorithm": "Monte Carlo",
+    "samples_per_trial": 20000
+  }
+}

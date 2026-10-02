@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "name": "sqrt2_newton_exact",
+  "kind": "deterministic",
+  "reference": {
+    "value": "1.41421356237309504880168872420969807856967187537694807317668",
+    "sha256": "00bd85432762d981ff273f80fa96cc6e9ec37995fa044e669b7b2e5a4f161ce5"
+  },
+  "abs_error": {
+    "mean": 1.2537167179050217e-16,
+    "std": 0.0,
+    "n": 6,
+    "min": 1.2537167179050217e-16,
+    "max": 1.2537167179050217e-16
+  },
+  "rel_error": {
+    "mean": 8.865115929175827e-17,
+    "std": 0.0,
+    "n": 6,
+    "min": 8.865115929175827e-17,
+    "max": 8.865115929175827e-17
+  },
+  "iterations": {
+    "mean": 6.0,
+    "std": 0.0,
+    "n": 6,
+    "min": 6,
+    "max": 6
+  },
+  "elapsed_median": 5.799993232358247e-07,
+  "created": "2026-10-02T20:57:44+00:00",
+  "platform": "Linux-6.18.33.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "meta": {
+    "algorithm": "Newton sqrt",
+    "noise": "none (bit-identical)"
+  }
+}

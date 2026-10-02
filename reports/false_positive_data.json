@@ -1,0 +1,52 @@
+{
+  "generated": "2026-10-02T21:00:42+00:00",
+  "alpha": 0.01,
+  "note": "observed_fp must stay at or below theoretical_fp (up to Monte Carlo sampling error of the study itself)",
+  "scenarios": [
+    {
+      "name": "deterministic_noise_only",
+      "description": "baseline n=12, fresh error drawn from the identical normal distribution (models cross-platform float noise)",
+      "n_reps": 20000,
+      "failures": 14,
+      "observed_fp": 0.0007,
+      "theoretical_fp": 0.001,
+      "within_bound": true
+    },
+    {
+      "name": "deterministic_few_samples",
+      "description": "baseline n=2: the t prediction multiplier (t(1,0.01)*sqrt(1.5)=39) keeps false alarms at or below alpha",
+      "n_reps": 20000,
+      "failures": 14,
+      "observed_fp": 0.0007,
+      "theoretical_fp": 0.01,
+      "within_bound": true
+    },
+    {
+      "name": "randomized_no_shift",
+      "description": "both baseline (n=30) and fresh sample (n=30) drawn from the identical distribution: false alarms far below alpha",
+      "n_reps": 5000,
+      "failures": 28,
+      "observed_fp": 0.0056,
+      "theoretical_fp": 0.01,
+      "within_bound": true
+    },
+    {
+      "name": "randomized_boundary_shift",
+      "description": "fresh sample degraded by exactly delta (the non-inferiority margin); rate saturates near alpha -- mildly liberal because delta itself is estimated from the baseline mean",
+      "n_reps": 5000,
+      "failures": 72,
+      "observed_fp": 0.0144,
+      "theoretical_fp": 0.01,
+      "within_bound": true
+    },
+    {
+      "name": "randomized_few_samples_boundary",
+      "description": "n0=n1=3, fresh sample degraded by exactly delta: the t-test keeps the rate at alpha despite tiny samples",
+      "n_reps": 5000,
+      "failures": 26,
+      "observed_fp": 0.0052,
+      "theoretical_fp": 0.01,
+      "within_bound": true
+    }
+  ]
+}
