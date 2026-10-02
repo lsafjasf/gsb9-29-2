@@ -1,0 +1,22 @@
+{
+  "bug_class": "length_desync",
+  "detail": "u32 length must be 4, got 99",
+  "first_seen_in": "single",
+  "min_file": "findings/length_desync__single__small.min.bin",
+  "min_hex": "4e50010000030100000063",
+  "minimized_size": 11,
+  "mutation_specs": [
+    [
+      "len_pin_abs",
+      0,
+      0
+    ]
+  ],
+  "oracle_calls": 40,
+  "original_size": 46,
+  "raw_file": "findings/length_desync__single__small.bin",
+  "reconfirmed": true,
+  "seed": "small",
+  "sha256_min": "a0987b417bcf3ac2a8d57b26576e159b227786291ccb4517e1f6746d08cf3799",
+  "status": "crash"
+}

@@ -1,0 +1,22 @@
+{
+  "bug_class": "hang_sentinel",
+  "detail": "exceeded 0.250s",
+  "first_seen_in": "special",
+  "min_file": "findings/hang_sentinel__special__legacy_sentinel_hang.min.bin",
+  "min_hex": "4e50010000030100000004deadbeef",
+  "minimized_size": 15,
+  "mutation_specs": [
+    [
+      "u32_boundary",
+      0,
+      3735928559
+    ]
+  ],
+  "oracle_calls": 53,
+  "original_size": 46,
+  "raw_file": "findings/hang_sentinel__special__legacy_sentinel_hang.bin",
+  "reconfirmed": true,
+  "seed": "legacy_sentinel_hang",
+  "sha256_min": "ef1706667b77d091d3f1ab124b4ca6ae2b05506f18fb799b28b9d1e6b8fb4f8f",
+  "status": "timeout"
+}
