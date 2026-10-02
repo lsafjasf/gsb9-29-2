@@ -1,0 +1,68 @@
+被测实现: /home/administrator/gsb/uid56/B/chunkcrypt.py
+布局: HEADER_SIZE=96 MAC_SIZE=32 data_offset(4块)=256
+
+实验目录: /tmp/chunkcrypt-atk-w9qkxfja
+
+== E0 基线：正常加密往返 ==
+  [行为] 正常文件 read_all 返回原文 256 字节，与明文一致
+
+== E1 单比特篡改（块内 1 bit） ==
+  [检出] 翻转 chunk0 第 10 字节的一个 bit
+      -> ChunkTamperedError: chunk 0 failed integrity check (tampered or corrupt)
+      （预期: ChunkTamperedError(0)）
+  [行为] 篡改局部性: chunk2 仍可正常读出 = True
+
+== E2 整块替换（随机字节填充 chunk1） ==
+  [检出] chunk1 整块换成随机字节
+      -> ChunkTamperedError: chunk 1 failed integrity check (tampered or corrupt)
+      （预期: ChunkTamperedError(1)）
+== E3 块重排（仅交换数据区 chunk0<->chunk1） ==
+  [检出] 交换 chunk0/chunk1 密文
+      -> ChunkTamperedError: chunk 0 failed integrity check (tampered or corrupt)
+      （预期: ChunkTamperedError（块号绑定））
+== E4 块重排（数据 + 索引项一起交换） ==
+  [检出] chunk 密文与索引项同步交换
+      -> IntegrityError: index integrity check failed (chunk table tampered or reordered)
+      （预期: IntegrityError（index_mac 失配））
+== E5 块截断（删掉最后一块的 32 字节） ==
+  [检出] 文件尾部截短 32 字节
+      -> ChunkMissingError: chunk 3 is missing (file truncated or chunk deleted)
+      （预期: ChunkMissingError（打开即拒绝））
+== E5b 块截断（从中间挖掉一整块，保持总长度不变） ==
+  [检出] 中间删块+补零（后续块错位）
+      -> ChunkTamperedError: chunk 1 failed integrity check (tampered or corrupt)
+      （预期: ChunkTamperedError（错位处失配））
+== E6 尾部追加（附加 32 字节垃圾） ==
+  [检出] 文件末尾追加 32 字节
+      -> IntegrityError: file has trailing garbage beyond expected size
+      （预期: IntegrityError（trailing garbage））
+== E7 跨文件整块重放（同密钥、同块号，数据+索引项一起搬） ==
+  [检出] 把文件B的 chunk1(密文+MAC) 移植进文件A
+      -> IntegrityError: index integrity check failed (chunk table tampered or reordered)
+      （预期: IntegrityError（index_mac 失配））
+== E8 跨文件拼接（A 的头部 + B 的索引与数据，同密钥同长度） ==
+  [静默接受] A头+B身（header_mac/index_mac/各chunk MAC 全部各自有效）
+      -> OK: 读出 256 字节: ad6166f26330cc274daa5bd0bf99f55f2a40739df36d822a...
+      （预期: 若格式把三段绑定则应拒绝；实际预期：静默接受且输出乱码）
+  [行为] 输出 == A 原文? False；== B 原文? False（两者皆否 = 无声损坏）
+
+== E9 整文件回滚重放（旧版本整体替换新版本） ==
+  [静默接受] 用旧版本密文整体覆盖当前文件
+      -> OK: 读出 256 字节: 4f4c442d5345435245542d76310000000000000000000000...
+      （预期: 格式无版本/新鲜度机制 -> 静默接受旧明文）
+  [行为] 读出的明文以 b'OLD-SECRET-v1' 开头 —— 旧版本被无声接受
+
+== E10 部分回滚（新头部 + 旧索引与旧数据） ==
+  [静默接受] 保留 v3 头部、回滚索引+数据到 v1
+      -> OK: 读出 256 字节: a04658c3a1e6af28ca5edcd62039c85852aaa7b4995ceb02...
+      （预期: 同 E8：三段无绑定 -> 静默接受乱码）
+== E11 未认证的 kdf_iterations（打开期 CPU-DoS） ==
+  [行为] header 中 kdf_iterations 200000 -> 30000000（header_mac 必然失配）
+  [行为] 打开耗时 4.38s 后才抛 IntegrityError —— PBKDF2 在 header_mac 校验之前执行
+      （对照: 正常 200k 轮约 0.03s；攻击者可写到 2^32-1 轮）
+
+== E12 同文件旧版本单块重放（旧 chunk + 旧索引项） ==
+  [检出] v3 中把 chunk0(密文+MAC) 回滚到 v1
+      -> IntegrityError: index integrity check failed (chunk table tampered or reordered)
+      （预期: IntegrityError（index_mac 失配））
+实验完成。详细结论见 ANALYSIS.md。
