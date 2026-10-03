@@ -1,0 +1,219 @@
+{
+  "events": [
+    {
+      "attempt": 1,
+      "kind": "step_start",
+      "seq": 1,
+      "step": "prepare"
+    },
+    {
+      "attempts": 1,
+      "duration": 0.004749,
+      "kind": "step_end",
+      "seq": 4,
+      "status": "SUCCESS",
+      "step": "prepare"
+    },
+    {
+      "attempt": 1,
+      "kind": "step_start",
+      "seq": 5,
+      "step": "migrate_db"
+    },
+    {
+      "attempts": 1,
+      "duration": 0.003047,
+      "kind": "step_end",
+      "seq": 7,
+      "status": "SUCCESS",
+      "step": "migrate_db"
+    },
+    {
+      "attempt": 1,
+      "kind": "step_start",
+      "seq": 8,
+      "step": "deploy_web"
+    },
+    {
+      "attempt": 1,
+      "error": "RuntimeError: 健康检查未通过",
+      "kind": "step_attempt_failed",
+      "seq": 9,
+      "step": "deploy_web"
+    },
+    {
+      "attempt": 2,
+      "kind": "retry",
+      "seq": 10,
+      "step": "deploy_web"
+    },
+    {
+      "attempt": 2,
+      "error": "RuntimeError: 健康检查未通过",
+      "kind": "step_attempt_failed",
+      "seq": 11,
+      "step": "deploy_web"
+    },
+    {
+      "attempts": 2,
+      "duration": 0.509589,
+      "error": "RuntimeError: 健康检查未通过",
+      "kind": "step_end",
+      "seq": 12,
+      "status": "FAILED",
+      "step": "deploy_web"
+    },
+    {
+      "kind": "skipped",
+      "reason": "上游失败，未执行",
+      "seq": 13,
+      "step": "deploy_worker"
+    },
+    {
+      "kind": "skipped",
+      "reason": "上游失败，未执行",
+      "seq": 14,
+      "step": "switch_traffic"
+    },
+    {
+      "kind": "rollback_start",
+      "seq": 15,
+      "step": "deploy_web"
+    },
+    {
+      "duration": 0.001578,
+      "kind": "rollback_end",
+      "seq": 17,
+      "status": "ROLLED_BACK",
+      "step": "deploy_web"
+    },
+    {
+      "kind": "rollback_start",
+      "seq": 18,
+      "step": "migrate_db"
+    },
+    {
+      "duration": 0.001542,
+      "kind": "rollback_end",
+      "seq": 20,
+      "status": "ROLLED_BACK",
+      "step": "migrate_db"
+    },
+    {
+      "kind": "rollback_start",
+      "seq": 21,
+      "step": "prepare"
+    },
+    {
+      "duration": 0.001636,
+      "kind": "rollback_end",
+      "seq": 23,
+      "status": "ROLLED_BACK",
+      "step": "prepare"
+    }
+  ],
+  "ledger": [
+    {
+      "key": "effect",
+      "result": "prepare",
+      "seq": 2,
+      "step": "prepare"
+    },
+    {
+      "key": "side:download",
+      "result": "package.tar.gz",
+      "seq": 3,
+      "step": "prepare"
+    },
+    {
+      "key": "effect",
+      "result": "migrate_db",
+      "seq": 6,
+      "step": "migrate_db"
+    },
+    {
+      "key": "rollback",
+      "result": "undo-deploy_web",
+      "seq": 16,
+      "step": "deploy_web"
+    },
+    {
+      "key": "rollback",
+      "result": "undo-migrate_db",
+      "seq": 19,
+      "step": "migrate_db"
+    },
+    {
+      "key": "rollback",
+      "result": "undo-prepare",
+      "seq": 22,
+      "step": "prepare"
+    }
+  ],
+  "outputs": {
+    "migrate_db": "migrate_db",
+    "prepare": "prepare"
+  },
+  "rollback": [
+    {
+      "duration": 0.001578,
+      "id": "deploy_web",
+      "status": "ROLLED_BACK"
+    },
+    {
+      "duration": 0.001542,
+      "id": "migrate_db",
+      "status": "ROLLED_BACK"
+    },
+    {
+      "duration": 0.001636,
+      "id": "prepare",
+      "status": "ROLLED_BACK"
+    }
+  ],
+  "seq": 23,
+  "status": "FAILED",
+  "steps": {
+    "deploy_web": {
+      "attempts": 2,
+      "duration": 0.5095887729985407,
+      "error": "RuntimeError: 健康检查未通过",
+      "rollback_status": "ROLLED_BACK",
+      "skipped_reason": "",
+      "status": "FAILED"
+    },
+    "deploy_worker": {
+      "attempts": 0,
+      "duration": 0.0,
+      "error": "",
+      "rollback_status": "",
+      "skipped_reason": "上游失败，未执行",
+      "status": "SKIPPED"
+    },
+    "migrate_db": {
+      "attempts": 1,
+      "duration": 0.0030470879864878953,
+      "error": "",
+      "rollback_status": "ROLLED_BACK",
+      "skipped_reason": "",
+      "status": "SUCCESS"
+    },
+    "prepare": {
+      "attempts": 1,
+      "duration": 0.004749309999169782,
+      "error": "",
+      "rollback_status": "ROLLED_BACK",
+      "skipped_reason": "",
+      "status": "SUCCESS"
+    },
+    "switch_traffic": {
+      "attempts": 0,
+      "duration": 0.0,
+      "error": "",
+      "rollback_status": "",
+      "skipped_reason": "上游失败，未执行",
+      "status": "SKIPPED"
+    }
+  },
+  "version": 1
+}

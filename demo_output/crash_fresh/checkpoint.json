@@ -1,0 +1,165 @@
+{
+  "events": [
+    {
+      "attempt": 1,
+      "kind": "step_start",
+      "seq": 1,
+      "step": "prepare"
+    },
+    {
+      "attempts": 1,
+      "duration": 0.004871,
+      "kind": "step_end",
+      "seq": 4,
+      "status": "SUCCESS",
+      "step": "prepare"
+    },
+    {
+      "attempt": 1,
+      "kind": "step_start",
+      "seq": 5,
+      "step": "migrate_db"
+    },
+    {
+      "attempts": 1,
+      "duration": 0.004456,
+      "kind": "step_end",
+      "seq": 7,
+      "status": "SUCCESS",
+      "step": "migrate_db"
+    },
+    {
+      "attempt": 1,
+      "kind": "step_start",
+      "seq": 8,
+      "step": "deploy_web"
+    },
+    {
+      "attempts": 1,
+      "duration": 0.003739,
+      "kind": "step_end",
+      "seq": 10,
+      "status": "SUCCESS",
+      "step": "deploy_web"
+    },
+    {
+      "attempt": 1,
+      "kind": "step_start",
+      "seq": 11,
+      "step": "deploy_worker"
+    },
+    {
+      "attempts": 1,
+      "duration": 0.003971,
+      "kind": "step_end",
+      "seq": 13,
+      "status": "SUCCESS",
+      "step": "deploy_worker"
+    },
+    {
+      "attempt": 1,
+      "kind": "step_start",
+      "seq": 14,
+      "step": "switch_traffic"
+    },
+    {
+      "attempts": 1,
+      "duration": 0.004528,
+      "kind": "step_end",
+      "seq": 16,
+      "status": "SUCCESS",
+      "step": "switch_traffic"
+    }
+  ],
+  "ledger": [
+    {
+      "key": "effect",
+      "result": "prepare",
+      "seq": 2,
+      "step": "prepare"
+    },
+    {
+      "key": "side:download",
+      "result": "package.tar.gz",
+      "seq": 3,
+      "step": "prepare"
+    },
+    {
+      "key": "effect",
+      "result": "migrate_db",
+      "seq": 6,
+      "step": "migrate_db"
+    },
+    {
+      "key": "effect",
+      "result": "deploy_web",
+      "seq": 9,
+      "step": "deploy_web"
+    },
+    {
+      "key": "effect",
+      "result": "deploy_worker",
+      "seq": 12,
+      "step": "deploy_worker"
+    },
+    {
+      "key": "effect",
+      "result": "switch_traffic",
+      "seq": 15,
+      "step": "switch_traffic"
+    }
+  ],
+  "outputs": {
+    "deploy_web": "deploy_web",
+    "deploy_worker": "deploy_worker",
+    "migrate_db": "migrate_db",
+    "prepare": "prepare",
+    "switch_traffic": "switch_traffic"
+  },
+  "rollback": [],
+  "seq": 16,
+  "status": "SUCCESS",
+  "steps": {
+    "deploy_web": {
+      "attempts": 1,
+      "duration": 0.0037394940009107813,
+      "error": "",
+      "rollback_status": "",
+      "skipped_reason": "",
+      "status": "SUCCESS"
+    },
+    "deploy_worker": {
+      "attempts": 1,
+      "duration": 0.003970538993598893,
+      "error": "",
+      "rollback_status": "",
+      "skipped_reason": "",
+      "status": "SUCCESS"
+    },
+    "migrate_db": {
+      "attempts": 1,
+      "duration": 0.004456479000509717,
+      "error": "",
+      "rollback_status": "",
+      "skipped_reason": "",
+      "status": "SUCCESS"
+    },
+    "prepare": {
+      "attempts": 1,
+      "duration": 0.004871397992246784,
+      "error": "",
+      "rollback_status": "",
+      "skipped_reason": "",
+      "status": "SUCCESS"
+    },
+    "switch_traffic": {
+      "attempts": 1,
+      "duration": 0.00452846399275586,
+      "error": "",
+      "rollback_status": "",
+      "skipped_reason": "",
+      "status": "SUCCESS"
+    }
+  },
+  "version": 1
+}

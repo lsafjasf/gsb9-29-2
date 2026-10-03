@@ -1,0 +1,122 @@
+{
+  "run_status": "SUCCESS",
+  "order": {
+    "planned": [
+      "prepare",
+      "migrate_db",
+      "deploy_web",
+      "deploy_worker",
+      "switch_traffic"
+    ],
+    "actual": [
+      "prepare",
+      "migrate_db",
+      "deploy_web",
+      "deploy_worker",
+      "switch_traffic"
+    ],
+    "matches_plan": true
+  },
+  "steps": [
+    {
+      "id": "prepare",
+      "status": "SUCCESS",
+      "attempts": 1,
+      "duration": 0.004989,
+      "planned_wave": 0,
+      "planned_start": 0.0,
+      "skipped_reason": "",
+      "error": "",
+      "rollback_status": ""
+    },
+    {
+      "id": "migrate_db",
+      "status": "SUCCESS",
+      "attempts": 1,
+      "duration": 0.002966,
+      "planned_wave": 1,
+      "planned_start": 0.02,
+      "skipped_reason": "",
+      "error": "",
+      "rollback_status": ""
+    },
+    {
+      "id": "deploy_web",
+      "status": "SUCCESS",
+      "attempts": 1,
+      "duration": 0.003431,
+      "planned_wave": 2,
+      "planned_start": 0.05,
+      "skipped_reason": "",
+      "error": "",
+      "rollback_status": ""
+    },
+    {
+      "id": "deploy_worker",
+      "status": "SUCCESS",
+      "attempts": 1,
+      "duration": 0.003062,
+      "planned_wave": 3,
+      "planned_start": 0.09,
+      "skipped_reason": "",
+      "error": "",
+      "rollback_status": ""
+    },
+    {
+      "id": "switch_traffic",
+      "status": "SUCCESS",
+      "attempts": 1,
+      "duration": 0.003165,
+      "planned_wave": 4,
+      "planned_start": 0.13,
+      "skipped_reason": "",
+      "error": "",
+      "rollback_status": ""
+    }
+  ],
+  "slow_steps": [],
+  "skipped": [],
+  "rollback": {
+    "triggered": false,
+    "covered_steps": []
+  },
+  "effects": [
+    {
+      "step": "prepare",
+      "key": "effect",
+      "result": "prepare",
+      "seq": 2
+    },
+    {
+      "step": "prepare",
+      "key": "side:download",
+      "result": "package.tar.gz",
+      "seq": 3
+    },
+    {
+      "step": "migrate_db",
+      "key": "effect",
+      "result": "migrate_db",
+      "seq": 6
+    },
+    {
+      "step": "deploy_web",
+      "key": "effect",
+      "result": "deploy_web",
+      "seq": 9
+    },
+    {
+      "step": "deploy_worker",
+      "key": "effect",
+      "result": "deploy_worker",
+      "seq": 12
+    },
+    {
+      "step": "switch_traffic",
+      "key": "effect",
+      "result": "switch_traffic",
+      "seq": 15
+    }
+  ],
+  "estimated_makespan": 0.15
+}

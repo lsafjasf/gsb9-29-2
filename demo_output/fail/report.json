@@ -1,0 +1,152 @@
+{
+  "run_status": "FAILED",
+  "order": {
+    "planned": [
+      "prepare",
+      "migrate_db",
+      "deploy_web",
+      "deploy_worker",
+      "switch_traffic"
+    ],
+    "actual": [
+      "prepare",
+      "migrate_db",
+      "deploy_web"
+    ],
+    "matches_plan": true
+  },
+  "steps": [
+    {
+      "id": "prepare",
+      "status": "SUCCESS",
+      "attempts": 1,
+      "duration": 0.004749,
+      "planned_wave": 0,
+      "planned_start": 0.0,
+      "skipped_reason": "",
+      "error": "",
+      "rollback_status": "ROLLED_BACK"
+    },
+    {
+      "id": "migrate_db",
+      "status": "SUCCESS",
+      "attempts": 1,
+      "duration": 0.003047,
+      "planned_wave": 1,
+      "planned_start": 0.02,
+      "skipped_reason": "",
+      "error": "",
+      "rollback_status": "ROLLED_BACK"
+    },
+    {
+      "id": "deploy_web",
+      "status": "FAILED",
+      "attempts": 2,
+      "duration": 0.509589,
+      "planned_wave": 2,
+      "planned_start": 0.05,
+      "skipped_reason": "",
+      "error": "RuntimeError: 健康检查未通过",
+      "rollback_status": "ROLLED_BACK"
+    },
+    {
+      "id": "deploy_worker",
+      "status": "SKIPPED",
+      "attempts": 0,
+      "duration": 0.0,
+      "planned_wave": 3,
+      "planned_start": 0.09,
+      "skipped_reason": "上游失败，未执行",
+      "error": "",
+      "rollback_status": ""
+    },
+    {
+      "id": "switch_traffic",
+      "status": "SKIPPED",
+      "attempts": 0,
+      "duration": 0.0,
+      "planned_wave": 4,
+      "planned_start": 0.13,
+      "skipped_reason": "上游失败，未执行",
+      "error": "",
+      "rollback_status": ""
+    }
+  ],
+  "slow_steps": [
+    {
+      "id": "deploy_web",
+      "estimated": 0.04,
+      "actual": 0.509589,
+      "ratio": 12.74
+    }
+  ],
+  "skipped": [
+    {
+      "id": "deploy_worker",
+      "reason": "上游失败，未执行"
+    },
+    {
+      "id": "switch_traffic",
+      "reason": "上游失败，未执行"
+    }
+  ],
+  "rollback": {
+    "triggered": true,
+    "covered_steps": [
+      {
+        "id": "deploy_web",
+        "status": "ROLLED_BACK",
+        "duration": 0.001578
+      },
+      {
+        "id": "migrate_db",
+        "status": "ROLLED_BACK",
+        "duration": 0.001542
+      },
+      {
+        "id": "prepare",
+        "status": "ROLLED_BACK",
+        "duration": 0.001636
+      }
+    ]
+  },
+  "effects": [
+    {
+      "step": "prepare",
+      "key": "effect",
+      "result": "prepare",
+      "seq": 2
+    },
+    {
+      "step": "prepare",
+      "key": "side:download",
+      "result": "package.tar.gz",
+      "seq": 3
+    },
+    {
+      "step": "migrate_db",
+      "key": "effect",
+      "result": "migrate_db",
+      "seq": 6
+    },
+    {
+      "step": "deploy_web",
+      "key": "rollback",
+      "result": "undo-deploy_web",
+      "seq": 16
+    },
+    {
+      "step": "migrate_db",
+      "key": "rollback",
+      "result": "undo-migrate_db",
+      "seq": 19
+    },
+    {
+      "step": "prepare",
+      "key": "rollback",
+      "result": "undo-prepare",
+      "seq": 22
+    }
+  ],
+  "estimated_makespan": 0.15
+}
