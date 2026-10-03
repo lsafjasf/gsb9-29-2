@@ -1,0 +1,348 @@
+{
+  "summary": {
+    "total_rules": 19,
+    "never_triggers": 6,
+    "always_triggers": 5,
+    "inconclusive": 2,
+    "normal": 6,
+    "duplicate_groups": 3,
+    "errors": 13,
+    "warnings": 3
+  },
+  "findings": [
+    {
+      "rule_id": "r-never-high",
+      "kind": "never_triggers",
+      "severity": "error",
+      "category": "永远不触发",
+      "basis": [
+        "cpu_usage avg(5m) > 150：聚合后取值域 [0, 100]内没有任何取值满足条件（满足域为空）"
+      ]
+    },
+    {
+      "rule_id": "r-never-negative",
+      "kind": "never_triggers",
+      "severity": "error",
+      "category": "永远不触发",
+      "basis": [
+        "error_rate avg(5m) < 0：聚合后取值域 [0, 1]内没有任何取值满足条件（满足域为空）"
+      ]
+    },
+    {
+      "rule_id": "r-always-floor",
+      "kind": "always_triggers",
+      "severity": "error",
+      "category": "永远触发",
+      "basis": [
+        "cpu_usage avg(5m) >= 0：聚合后取值域 [0, 100]内所有取值都满足条件（不满足域为空）"
+      ]
+    },
+    {
+      "rule_id": "r-always-avail",
+      "kind": "always_triggers",
+      "severity": "error",
+      "category": "永远触发",
+      "basis": [
+        "availability avg(5m) < 1.5：聚合后取值域 [0, 1]内所有取值都满足条件（不满足域为空）"
+      ]
+    },
+    {
+      "rule_id": "r-missing-metric",
+      "kind": "missing_metric",
+      "severity": "warning",
+      "category": "缺失指标",
+      "basis": [
+        "未注册指标: ['gpu_temp']"
+      ]
+    },
+    {
+      "rule_id": "r-contradiction",
+      "kind": "never_triggers",
+      "severity": "error",
+      "category": "永远不触发",
+      "basis": [
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发",
+        "cpu_usage avg(5m) < 80：聚合后取值域 [0, 100]，部分取值触发、部分不触发",
+        "与同一量 cpu_usage avg(5m) 的其他条件矛盾：可行取值域求交为空"
+      ]
+    },
+    {
+      "rule_id": "r-window-retention",
+      "kind": "invalid_window",
+      "severity": "error",
+      "category": "永远不触发",
+      "basis": [
+        "窗口 120d 超过指标 cpu_usage 的保留期（retention=12w6d），历史数据不足以填满窗口"
+      ]
+    },
+    {
+      "rule_id": "r-window-zero",
+      "kind": "invalid_window",
+      "severity": "error",
+      "category": "永远不触发",
+      "basis": [
+        "窗口必须为正数: '0m'"
+      ]
+    },
+    {
+      "rule_id": "r-eq-impossible",
+      "kind": "never_triggers",
+      "severity": "error",
+      "category": "永远不触发",
+      "basis": [
+        "cpu_usage avg(5m) == 120：聚合后取值域 [0, 100]内没有任何取值满足条件（满足域为空）"
+      ]
+    },
+    {
+      "rule_id": "r-neq-tautology",
+      "kind": "always_triggers",
+      "severity": "error",
+      "category": "永远触发",
+      "basis": [
+        "cpu_usage avg(5m) != 150：聚合后取值域 [0, 100]内所有取值都满足条件（不满足域为空）"
+      ]
+    },
+    {
+      "rule_id": "r-sum-undecidable",
+      "kind": "inconclusive",
+      "severity": "warning",
+      "category": "无法判定",
+      "basis": [
+        "memory_bytes sum(5m) > 1e+12：sum 聚合但指标取值域无界，无法推导总量范围，无法判定"
+      ]
+    },
+    {
+      "rule_id": "r-not-always",
+      "kind": "always_triggers",
+      "severity": "error",
+      "category": "永远触发",
+      "basis": [
+        "cpu_usage avg(5m) <= 150：聚合后取值域 [0, 100]内所有取值都满足条件（不满足域为空）"
+      ]
+    },
+    {
+      "rule_id": "r-or-tautology",
+      "kind": "always_triggers",
+      "severity": "error",
+      "category": "永远触发",
+      "basis": [
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发",
+        "cpu_usage avg(5m) <= 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发",
+        "OR 分支覆盖 cpu_usage avg 的整个取值域：所有分支不可能同时为假，条件恒真"
+      ]
+    },
+    {
+      "rule_id": null,
+      "rule_ids": [
+        "r-dup-exact-1",
+        "r-dup-exact-2"
+      ],
+      "kind": "duplicate_equivalent",
+      "severity": "error",
+      "category": "重复（条件等价）",
+      "basis": [
+        {
+          "pair": [
+            "r-dup-exact-1",
+            "r-dup-exact-2"
+          ],
+          "kind": "等价",
+          "similarity": 1.0,
+          "detail": [
+            "规范化条件签名一致：cpu_usage|avg|w300|f*|>|90"
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": null,
+      "rule_ids": [
+        "r-composite-a",
+        "r-composite-b"
+      ],
+      "kind": "duplicate_equivalent",
+      "severity": "error",
+      "category": "重复（条件等价）",
+      "basis": [
+        {
+          "pair": [
+            "r-composite-a",
+            "r-composite-b"
+          ],
+          "kind": "等价",
+          "similarity": 1.0,
+          "detail": [
+            "规范化条件签名一致：(cpu_usage|avg|w300|f*|>|90&error_rate|avg|w300|f*|>|0.5)"
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": null,
+      "rule_ids": [
+        "r-dup-near-1",
+        "r-dup-near-2"
+      ],
+      "kind": "duplicate_overlap",
+      "severity": "warning",
+      "category": "重复（高度重叠）",
+      "basis": [
+        {
+          "pair": [
+            "r-dup-near-1",
+            "r-dup-near-2"
+          ],
+          "kind": "高度重叠",
+          "similarity": 0.975,
+          "detail": [
+            "触发取值域 Jaccard=1.00",
+            "窗口接近度=0.83（5m vs 6m）",
+            "聚合/比较符/持续时长相似度=1.00（agg avg/avg，op >/>）",
+            "加权相似度 0.75×域+0.15×窗口+0.10×其他 = 0.975"
+          ]
+        }
+      ]
+    }
+  ],
+  "status_by_rule": {
+    "r-never-high": {
+      "status": "never_triggers",
+      "label": "永远不触发",
+      "reasons": [
+        "cpu_usage avg(5m) > 150：聚合后取值域 [0, 100]内没有任何取值满足条件（满足域为空）"
+      ]
+    },
+    "r-never-negative": {
+      "status": "never_triggers",
+      "label": "永远不触发",
+      "reasons": [
+        "error_rate avg(5m) < 0：聚合后取值域 [0, 1]内没有任何取值满足条件（满足域为空）"
+      ]
+    },
+    "r-always-floor": {
+      "status": "always_triggers",
+      "label": "永远触发（恒真）",
+      "reasons": [
+        "cpu_usage avg(5m) >= 0：聚合后取值域 [0, 100]内所有取值都满足条件（不满足域为空）"
+      ]
+    },
+    "r-always-avail": {
+      "status": "always_triggers",
+      "label": "永远触发（恒真）",
+      "reasons": [
+        "availability avg(5m) < 1.5：聚合后取值域 [0, 1]内所有取值都满足条件（不满足域为空）"
+      ]
+    },
+    "r-dup-exact-1": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "r-dup-exact-2": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "r-dup-near-1": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage avg(5m) > 92：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "r-dup-near-2": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage avg(6m) > 92：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "r-missing-metric": {
+      "status": "inconclusive",
+      "label": "信息不足，无法判定",
+      "reasons": [
+        "gpu_temp avg(5m) > 80：指标未注册，取值范围未知，无法判定"
+      ]
+    },
+    "r-contradiction": {
+      "status": "never_triggers",
+      "label": "永远不触发",
+      "reasons": [
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发",
+        "cpu_usage avg(5m) < 80：聚合后取值域 [0, 100]，部分取值触发、部分不触发",
+        "与同一量 cpu_usage avg(5m) 的其他条件矛盾：可行取值域求交为空"
+      ]
+    },
+    "r-composite-a": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发",
+        "error_rate avg(5m) > 0.5：聚合后取值域 [0, 1]，部分取值触发、部分不触发"
+      ]
+    },
+    "r-composite-b": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "error_rate avg(5m) > 0.5：聚合后取值域 [0, 1]，部分取值触发、部分不触发",
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "r-window-retention": {
+      "status": "never_triggers",
+      "label": "永远不触发",
+      "reasons": [
+        "cpu_usage avg(120d) > 90：窗口 120d 超过指标 cpu_usage 的保留期（retention=12w6d），历史数据不足以填满窗口"
+      ]
+    },
+    "r-window-zero": {
+      "status": "never_triggers",
+      "label": "永远不触发",
+      "reasons": [
+        "cpu_usage avg(0m) > 90：窗口必须为正数: '0m'"
+      ]
+    },
+    "r-eq-impossible": {
+      "status": "never_triggers",
+      "label": "永远不触发",
+      "reasons": [
+        "cpu_usage avg(5m) == 120：聚合后取值域 [0, 100]内没有任何取值满足条件（满足域为空）"
+      ]
+    },
+    "r-neq-tautology": {
+      "status": "always_triggers",
+      "label": "永远触发（恒真）",
+      "reasons": [
+        "cpu_usage avg(5m) != 150：聚合后取值域 [0, 100]内所有取值都满足条件（不满足域为空）"
+      ]
+    },
+    "r-sum-undecidable": {
+      "status": "inconclusive",
+      "label": "信息不足，无法判定",
+      "reasons": [
+        "memory_bytes sum(5m) > 1e+12：sum 聚合但指标取值域无界，无法推导总量范围，无法判定"
+      ]
+    },
+    "r-not-always": {
+      "status": "always_triggers",
+      "label": "永远触发（恒真）",
+      "reasons": [
+        "cpu_usage avg(5m) <= 150：聚合后取值域 [0, 100]内所有取值都满足条件（不满足域为空）"
+      ]
+    },
+    "r-or-tautology": {
+      "status": "always_triggers",
+      "label": "永远触发（恒真）",
+      "reasons": [
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发",
+        "cpu_usage avg(5m) <= 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发",
+        "OR 分支覆盖 cpu_usage avg 的整个取值域：所有分支不可能同时为假，条件恒真"
+      ]
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "summary": {
+    "total_rules": 13,
+    "never_triggers": 0,
+    "always_triggers": 0,
+    "inconclusive": 0,
+    "normal": 13,
+    "duplicate_groups": 0,
+    "errors": 0,
+    "warnings": 0
+  },
+  "findings": [],
+  "status_by_rule": {
+    "ok-cpu-high": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-cpu-high-long": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage avg(15m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-cpu-warn": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage avg(5m) > 50：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-cpu-spike": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage max(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-err-high": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "error_rate avg(5m) > 0.8：聚合后取值域 [0, 1]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-err-low": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "error_rate avg(5m) > 0.05：聚合后取值域 [0, 1]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-cpu-sustained": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage avg(5m) > 90：聚合后取值域 [0, 100]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-latency-p99": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "latency_ms p99(5m) > 500：聚合后取值域 [0, +∞]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-cpu-sum": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "cpu_usage sum(5m) > 400：聚合后取值域 [0, 500]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-node-down": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "node_up avg(10m) < 1：聚合后取值域 [0, 1]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-avail-slo": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "availability avg(30d) < 0.999：聚合后取值域 [0, 1]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-latency-p99-1h": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "latency_ms p99(1h) > 500：聚合后取值域 [0, +∞]，部分取值触发、部分不触发"
+      ]
+    },
+    "ok-5xx-rate": {
+      "status": "may_trigger",
+      "label": "正常（可能触发也可能不触发）",
+      "reasons": [
+        "http_5xx_count rate(5m) > 10：聚合后取值域 [0, +∞]，部分取值触发、部分不触发"
+      ]
+    }
+  }
+}

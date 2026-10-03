@@ -1,0 +1,37 @@
+{
+  "rules": [
+    {"id": "r-never-high",      "metric": "cpu_usage",    "agg": "avg", "window": "5m",   "condition": {"op": ">",  "value": 150}},
+    {"id": "r-never-negative",  "metric": "error_rate",   "agg": "avg", "window": "5m",   "condition": {"op": "<",  "value": 0}},
+    {"id": "r-always-floor",    "metric": "cpu_usage",    "agg": "avg", "window": "5m",   "condition": {"op": ">=", "value": 0}},
+    {"id": "r-always-avail",    "metric": "availability", "agg": "avg", "window": "5m",   "condition": {"op": "<",  "value": 1.5}},
+    {"id": "r-dup-exact-1",     "metric": "cpu_usage",    "agg": "avg", "window": "5m",   "condition": {"op": ">",  "value": 90}},
+    {"id": "r-dup-exact-2",     "metric": "cpu_usage",    "agg": "avg", "window": "5m",   "condition": {"op": ">",  "value": 90}},
+    {"id": "r-dup-near-1",      "metric": "cpu_usage",    "agg": "avg", "window": "5m",   "condition": {"op": ">",  "value": 92}},
+    {"id": "r-dup-near-2",      "metric": "cpu_usage",    "agg": "avg", "window": "6m",   "condition": {"op": ">",  "value": 92}},
+    {"id": "r-missing-metric",  "metric": "gpu_temp",     "agg": "avg", "window": "5m",   "condition": {"op": ">",  "value": 80}},
+    {"id": "r-contradiction",   "condition": {"all": [
+        {"metric": "cpu_usage", "agg": "avg", "window": "5m", "op": ">", "value": 90},
+        {"metric": "cpu_usage", "agg": "avg", "window": "5m", "op": "<", "value": 80}
+    ]}},
+    {"id": "r-composite-a",     "condition": {"all": [
+        {"metric": "cpu_usage",  "agg": "avg", "window": "5m", "op": ">", "value": 90},
+        {"metric": "error_rate", "agg": "avg", "window": "5m", "op": ">", "value": 0.5}
+    ]}},
+    {"id": "r-composite-b",     "condition": {"all": [
+        {"metric": "error_rate", "agg": "avg", "window": "5m", "op": ">", "value": 0.5},
+        {"metric": "cpu_usage",  "agg": "avg", "window": "5m", "op": ">", "value": 90}
+    ]}},
+    {"id": "r-window-retention","metric": "cpu_usage",    "agg": "avg", "window": "120d", "condition": {"op": ">", "value": 90}},
+    {"id": "r-window-zero",     "metric": "cpu_usage",    "agg": "avg", "window": "0m",   "condition": {"op": ">", "value": 90}},
+    {"id": "r-eq-impossible",   "metric": "cpu_usage",    "agg": "avg", "window": "5m",   "condition": {"op": "==", "value": 120}},
+    {"id": "r-neq-tautology",   "metric": "cpu_usage",    "agg": "avg", "window": "5m",   "condition": {"op": "!=", "value": 150}},
+    {"id": "r-sum-undecidable", "metric": "memory_bytes", "agg": "sum", "window": "5m",   "condition": {"op": ">",  "value": 1000000000000}},
+    {"id": "r-not-always",      "condition": {"not":
+        {"metric": "cpu_usage", "agg": "avg", "window": "5m", "op": ">", "value": 150}
+    }},
+    {"id": "r-or-tautology",    "condition": {"any": [
+        {"metric": "cpu_usage", "agg": "avg", "window": "5m", "op": ">",  "value": 90},
+        {"metric": "cpu_usage", "agg": "avg", "window": "5m", "op": "<=", "value": 90}
+    ]}}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "metrics": [
+    {"name": "cpu_usage",       "min": 0, "max": 100,  "unit": "%",  "every": "60s", "retention": "90d"},
+    {"name": "error_rate",      "min": 0, "max": 1,    "unit": "ratio", "every": "60s", "retention": "30d"},
+    {"name": "availability",    "min": 0, "max": 1,    "unit": "ratio", "every": "60s", "retention": "30d"},
+    {"name": "queue_depth",     "min": 0, "max": null, "integer": true, "every": "60s", "retention": "30d"},
+    {"name": "http_5xx_count",  "min": 0, "max": null, "integer": true, "every": "60s", "retention": "30d"},
+    {"name": "latency_ms",      "min": 0, "max": null, "unit": "ms", "every": "60s", "retention": "30d"},
+    {"name": "memory_bytes",    "min": 0, "max": null, "unit": "B",  "every": "60s", "retention": "30d"},
+    {"name": "node_up",         "min": 0, "max": 1,    "integer": true, "every": "60s", "retention": "30d"}
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "comment": "边界用例集：每个用例声明期望结论，tests/test_boundary_cases.py 逐条校验。指标元数据见 metrics.json。",
+  "cases": [
+    {"id": "b01-strict-at-max",      "rule": {"metric": "cpu_usage", "condition": {"op": ">",  "value": 100}}, "expect": "never_triggers", "note": "严格大于上界：无取值可满足"},
+    {"id": "b02-inclusive-at-max",   "rule": {"metric": "cpu_usage", "condition": {"op": ">=", "value": 100}}, "expect": "may_trigger",    "note": "含上界：恰好取到 100 时触发"},
+    {"id": "b03-strict-at-min",      "rule": {"metric": "cpu_usage", "condition": {"op": "<",  "value": 0}},   "expect": "never_triggers", "note": "严格小于下界"},
+    {"id": "b04-inclusive-at-min",   "rule": {"metric": "cpu_usage", "condition": {"op": "<=", "value": 0}},   "expect": "may_trigger",    "note": "含下界"},
+    {"id": "b05-eq-at-max",          "rule": {"metric": "cpu_usage", "condition": {"op": "==", "value": 100}}, "expect": "may_trigger",    "note": "等值于上界点"},
+    {"id": "b06-eq-outside",         "rule": {"metric": "cpu_usage", "condition": {"op": "==", "value": 100.5}},"expect": "never_triggers", "note": "等值于域外"},
+    {"id": "b07-neq-inside",         "rule": {"metric": "cpu_usage", "condition": {"op": "!=", "value": 100}}, "expect": "may_trigger",    "note": "域内排除单点"},
+    {"id": "b08-neq-outside",        "rule": {"metric": "cpu_usage", "condition": {"op": "!=", "value": 150}}, "expect": "always_triggers","note": "域外不等：恒真"},
+    {"id": "b09-int-gt-max",         "rule": {"metric": "node_up", "condition": {"op": ">",  "value": 1}}, "expect": "never_triggers", "note": "整数域严格大于上界"},
+    {"id": "b10-int-ge-max",         "rule": {"metric": "node_up", "condition": {"op": ">=", "value": 1}}, "expect": "may_trigger",    "note": "整数域含上界"},
+    {"id": "b11-int-gt-max-minus-1", "rule": {"metric": "node_up", "condition": {"op": ">",  "value": 0}}, "expect": "may_trigger",    "note": "整数域 >0 尚有取值 1"},
+    {"id": "b12-int-eq-outside",     "rule": {"metric": "node_up", "condition": {"op": "==", "value": 2}}, "expect": "never_triggers", "note": "整数域等值域外"},
+    {"id": "b13-window-eq-retention","rule": {"metric": "availability", "window": "30d", "condition": {"op": "<", "value": 0.999}}, "expect": "may_trigger", "note": "窗口恰等于保留期：合法长窗口，不得误报"},
+    {"id": "b14-window-gt-retention","rule": {"metric": "availability", "window": "31d", "condition": {"op": "<", "value": 0.999}}, "expect": "never_triggers", "finding": "invalid_window", "note": "窗口超保留期"},
+    {"id": "b15-window-zero",        "rule": {"metric": "cpu_usage", "window": "0m", "condition": {"op": ">", "value": 90}}, "expect": "never_triggers", "finding": "invalid_window", "note": "零窗口非法"},
+    {"id": "b16-window-garbage",     "rule": {"metric": "cpu_usage", "window": "soon", "condition": {"op": ">", "value": 90}}, "expect": "never_triggers", "finding": "invalid_window", "note": "窗口无法解析"},
+    {"id": "b17-window-lt-every",    "rule": {"metric": "cpu_usage", "window": "30s", "condition": {"op": ">", "value": 90}}, "expect": "may_trigger", "finding": "window_warning", "note": "窗口短于采样间隔：仅提示，不改变结论"},
+    {"id": "b18-missing-metric",     "rule": {"metric": "gpu_temp", "condition": {"op": ">", "value": 80}}, "expect": "inconclusive", "finding": "missing_metric", "note": "指标未注册：无法判定，不算错误"},
+    {"id": "b19-composite-missing",  "rule": {"condition": {"all": [
+        {"metric": "cpu_usage", "op": ">", "value": 90},
+        {"metric": "gpu_temp",  "op": ">", "value": 80}]}},
+      "expect": "inconclusive", "finding": "missing_metric", "note": "组合条件含缺失指标：保守降级"},
+    {"id": "b20-and-contradiction",  "rule": {"condition": {"all": [
+        {"metric": "cpu_usage", "op": ">", "value": 90},
+        {"metric": "cpu_usage", "op": "<", "value": 80}]}},
+      "expect": "never_triggers", "note": "同一量取值域求交为空"},
+    {"id": "b21-and-narrow-feasible","rule": {"condition": {"all": [
+        {"metric": "cpu_usage", "op": ">", "value": 90},
+        {"metric": "cpu_usage", "op": "<", "value": 95}]}},
+      "expect": "may_trigger", "note": "AND 收窄但仍有可行域 (90,95)：合法"},
+    {"id": "b22-or-tautology",       "rule": {"condition": {"any": [
+        {"metric": "cpu_usage", "op": ">",  "value": 90},
+        {"metric": "cpu_usage", "op": "<=", "value": 90}]}},
+      "expect": "always_triggers", "note": "OR 覆盖整个取值域"},
+    {"id": "b23-or-one-dead-branch", "rule": {"condition": {"any": [
+        {"metric": "cpu_usage",  "op": ">", "value": 150},
+        {"metric": "error_rate", "op": ">", "value": 0.9}]}},
+      "expect": "may_trigger", "note": "OR 一个分支恒假不影响整体可触发"},
+    {"id": "b24-not-of-impossible",  "rule": {"condition": {"not":
+        {"metric": "cpu_usage", "op": ">", "value": 150}}},
+      "expect": "always_triggers", "note": "NOT 翻转：恒假的否定是恒真"},
+    {"id": "b25-sum-derivable-never","rule": {"metric": "cpu_usage", "agg": "sum", "window": "5m", "condition": {"op": ">", "value": 500}}, "expect": "never_triggers", "note": "sum 上界=5样本×100=500，严格大于不可达"},
+    {"id": "b26-sum-derivable-edge", "rule": {"metric": "cpu_usage", "agg": "sum", "window": "5m", "condition": {"op": ">=", "value": 500}}, "expect": "may_trigger", "note": "sum 恰可取到上界"},
+    {"id": "b27-sum-unbounded",      "rule": {"metric": "memory_bytes", "agg": "sum", "window": "5m", "condition": {"op": ">", "value": 1000000}}, "expect": "inconclusive", "finding": "inconclusive", "note": "sum 上界不可推导：不猜结论"},
+    {"id": "b28-count-over-samples", "rule": {"metric": "cpu_usage", "agg": "count", "window": "5m", "condition": {"op": ">", "value": 5}}, "expect": "never_triggers", "note": "count 上界=窗口/采样间隔=5"},
+    {"id": "b29-rate-nonnegative",   "rule": {"metric": "http_5xx_count", "agg": "rate", "window": "5m", "condition": {"op": ">=", "value": 0}}, "expect": "always_triggers", "note": "rate 恒非负"},
+    {"id": "b30-unknown-agg",        "rule": {"metric": "cpu_usage", "agg": "weird_agg", "window": "5m", "condition": {"op": ">", "value": 90}}, "expect": "may_trigger", "note": "未知聚合按原值域处理并提示，不误报"}
+  ]
+}

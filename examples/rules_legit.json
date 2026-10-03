@@ -1,0 +1,17 @@
+{
+  "rules": [
+    {"id": "ok-cpu-high",        "metric": "cpu_usage",      "agg": "avg", "window": "5m",  "condition": {"op": ">", "value": 90}},
+    {"id": "ok-cpu-high-long",   "metric": "cpu_usage",      "agg": "avg", "window": "15m", "condition": {"op": ">", "value": 90}},
+    {"id": "ok-cpu-warn",        "metric": "cpu_usage",      "agg": "avg", "window": "5m",  "condition": {"op": ">", "value": 50}},
+    {"id": "ok-cpu-spike",       "metric": "cpu_usage",      "agg": "max", "window": "5m",  "condition": {"op": ">", "value": 90}},
+    {"id": "ok-err-high",        "metric": "error_rate",     "agg": "avg", "window": "5m",  "condition": {"op": ">", "value": 0.8}},
+    {"id": "ok-err-low",         "metric": "error_rate",     "agg": "avg", "window": "5m",  "condition": {"op": ">", "value": 0.05}},
+    {"id": "ok-cpu-sustained",   "metric": "cpu_usage",      "agg": "avg", "window": "5m",  "for": "2h", "condition": {"op": ">", "value": 90}},
+    {"id": "ok-latency-p99",     "metric": "latency_ms",     "agg": "p99", "window": "5m",  "condition": {"op": ">", "value": 500}},
+    {"id": "ok-cpu-sum",         "metric": "cpu_usage",      "agg": "sum", "window": "5m",  "condition": {"op": ">", "value": 400}},
+    {"id": "ok-node-down",       "metric": "node_up",        "agg": "avg", "window": "10m", "condition": {"op": "<", "value": 1}},
+    {"id": "ok-avail-slo",       "metric": "availability",   "agg": "avg", "window": "30d", "condition": {"op": "<", "value": 0.999}},
+    {"id": "ok-latency-p99-1h",  "metric": "latency_ms",     "agg": "p99", "window": "1h",  "condition": {"op": ">", "value": 500}},
+    {"id": "ok-5xx-rate",        "metric": "http_5xx_count", "agg": "rate", "window": "5m", "condition": {"op": ">", "value": 10}}
+  ]
+}
