@@ -1,0 +1,39 @@
+被测文件: /home/administrator/gsb/uid100/A/target/chunkcrypt.py
+HEADER_SIZE=96（README 文字称 120B；代码常量为 96B，见 chunkcrypt.py:52）
+固定密钥=000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f chunk_size=64 文件A=320B / 5 块, 文件B 同尺寸不同内容；另含尾块文件 333B
+==============================================================================
+[DETECTED   ] E0   期望=正常往返                   实际=open-ok,read_all 一致
+[DETECTED   ] E1a  期望=打开通过+读块2报 Tampered(2)  实际=open-ok;块0=b'AAAAAAAA';块2->ChunkTamperedError(2)
+[DETECTED   ] E1b  期望=读块2报 Tampered(2)       实际=读取阶段:ChunkTamperedError(2)
+[DETECTED   ] E2a  期望=块0正常;块1/2报 Tampered    实际=块0:read-ok;块1:读取阶段:ChunkTamperedError(1);块2:读取阶段:ChunkTamperedError(2)
+[DETECTED   ] E2b  期望=打开报 IntegrityError(index) 实际=IntegrityError
+[SILENT-ACCEPT] E2c  期望=★预期静默: 打开/索引/逐块MAC全过，返回错乱明文 实际=open-ok;read_all 320B 且≠任一合法明文
+[DETECTED   ] E2d  期望=打开报 IntegrityError(index) 实际=IntegrityError
+[SILENT-ACCEPT] E2e  期望=★预期静默: 旧文件被当作当前文件接受    实际=open-ok;读回 v1 旧数据
+[DETECTED   ] E3a  期望=打开报 ChunkMissingError(4) 实际=ChunkMissingError(4)
+[DETECTED   ] E3b  期望=打开或读块3时报缺失/篡改          实际=ChunkMissingError(4)
+[DETECTED   ] E3c  期望=读错位块报 Tampered         实际=读取阶段:ChunkTamperedError(3)
+[DETECTED   ] E3d  期望=打开报 IntegrityError(index truncated) 实际=IntegrityError
+[DETECTED   ] E3e  期望=打开报 ChunkCryptError(too small) 实际=ChunkCryptError
+[DETECTED   ] E3f  期望=打开报 IntegrityError(header) 实际=IntegrityError
+[DETECTED   ] E3g  期望=打开报 IntegrityError(trailing) 实际=IntegrityError
+[DETECTED   ] E3h  期望=打开报 IntegrityError(header) 实际=IntegrityError
+==============================================================================
+E0    DETECTED     正常往返
+E1a   DETECTED     打开通过+读块2报 Tampered(2)
+E1b   DETECTED     读块2报 Tampered(2)
+E2a   DETECTED     块0正常;块1/2报 Tampered
+E2b   DETECTED     打开报 IntegrityError(index)
+E2c   SILENT-ACCEPT  ★预期静默: 打开/索引/逐块MAC全过，返回错乱明文
+E2d   DETECTED     打开报 IntegrityError(index)
+E2e   SILENT-ACCEPT  ★预期静默: 旧文件被当作当前文件接受
+E3a   DETECTED     打开报 ChunkMissingError(4)
+E3b   DETECTED     打开或读块3时报缺失/篡改
+E3c   DETECTED     读错位块报 Tampered
+E3d   DETECTED     打开报 IntegrityError(index truncated)
+E3e   DETECTED     打开报 ChunkCryptError(too small)
+E3f   DETECTED     打开报 IntegrityError(header)
+E3g   DETECTED     打开报 IntegrityError(trailing)
+E3h   DETECTED     打开报 IntegrityError(header)
+------------------------------------------------------------------------------
+共 16 项；被检出 14；静默接受 2（E2c 跨文件载荷重放、E2e 整文件版本回滚）
